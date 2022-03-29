@@ -109,6 +109,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  fruit_design_system:
+    dependency: "direct main"
+    description:
+      path: "../fruit_design_system"
+      relative: true
+    source: path
+    version: "0.0.1"
   glob:
     dependency: transitive
     description:

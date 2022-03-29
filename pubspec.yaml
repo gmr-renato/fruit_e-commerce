@@ -30,6 +30,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  fruit_design_system:
+    # The following lines make fruit_design_system available though reference
+    # Use "path" reference in development mode so you can follow real time changes in
+    # the fruit_design_system repo
+    path: ../fruit_design_system
+    # Use "git" reference in production mode. This is required to CI/CI integration
+    # git:
+    #   url: https://github.com/gmr-renato/fruit_design_system.git
+    #   ref: production
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
