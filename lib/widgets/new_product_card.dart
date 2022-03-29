@@ -2,19 +2,21 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 
-import '../helpers/show_product_page.dart';
+import '../helpers/show_full_screen_bottom_sheet.dart';
+import '../pages/product_page.dart';
 
-class FruitCard extends StatelessWidget {
-  const FruitCard(this._productPageHeight, {Key? key}) : super(key: key);
+class NewProductCard extends StatelessWidget {
+  const NewProductCard(this._productPageHeight, {Key? key}) : super(key: key);
 
   final double _productPageHeight;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => showProductPage(
+      onTap: () => showFullBottomSheet(
         context,
         _productPageHeight,
+        const ProductPage(),
       ),
       child: Material(
         borderRadius: BorderRadius.circular(FruitUnit.large),

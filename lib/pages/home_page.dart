@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
-import 'helpers/show_product_page.dart';
-import 'widgets/fruit_card.dart';
-import 'widgets/fruit_list_tile.dart';
+import '../helpers/calculate_full_screen_bottom_sheet_hight.dart';
+import '../helpers/show_full_screen_bottom_sheet.dart';
+import '../widgets/new_product_card.dart';
+import '../widgets/product_list_tile.dart';
+import 'shopping_cart.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _productPageHeight = productTottomSheetHight(context);
+    final _bottomSheetHight = fullScreenBottomSheetHight(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
       drawer: const Drawer(),
@@ -38,7 +40,7 @@ class HomePage extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               separatorBuilder: (BuildContext _, int index) {
-                return FruitCard(_productPageHeight);
+                return NewProductCard(_bottomSheetHight);
               },
               itemBuilder: (BuildContext context, int index) {
                 return const FruitBoxSpacer();
@@ -57,7 +59,7 @@ class HomePage extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 10,
             itemBuilder: (BuildContext context, int index) {
-              return FruitListTile(_productPageHeight);
+              return ProductListTile(_bottomSheetHight);
             },
             separatorBuilder: (context, index) {
               return const FruitBoxSpacer();
@@ -66,7 +68,11 @@ class HomePage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () => showFullBottomSheet(
+          context,
+          _bottomSheetHight,
+          const ShoppingCartPage(),
+        ),
         label: Row(
           children: [
             const Text('Sacola'),

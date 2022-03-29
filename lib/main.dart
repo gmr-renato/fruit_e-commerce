@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
-import 'home_page.dart';
+import 'pages/home_page.dart';
 
 void main() {
   runApp(const AppWidget());
