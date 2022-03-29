@@ -1,4 +1,4 @@
-package com.example.fruit_ecommerce
+package com.gmr.fruit_ecommerce
 
 import io.flutter.embedding.android.FlutterActivity
 

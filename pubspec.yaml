@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cached_network_image: ^3.2.0
+  firebase_core: ^1.13.1
   flutter:
     sdk: flutter
   fruit_design_system:
