@@ -49,11 +49,13 @@ class ShoppingCartPage extends StatelessWidget {
                     isAlwaysShown: true,
                     child: ListView.separated(
                       itemCount: 4,
-                      separatorBuilder: (BuildContext context, int index) {
+                      itemBuilder: (BuildContext context, int index) {
                         return const ProductShoppingCartTile();
                       },
-                      itemBuilder: (BuildContext context, int index) {
-                        return const Divider();
+                      separatorBuilder: (BuildContext context, int index) {
+                        return const Divider(
+                          height: 1,
+                        );
                       },
                     ),
                   ),
@@ -77,7 +79,7 @@ class ShoppingCartPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Total: R\$ 20,00',
+                          'Total: R\$ 80,00',
                           style: FruitTheme().secondaryTextTheme.bodyText1,
                         ),
                       ],

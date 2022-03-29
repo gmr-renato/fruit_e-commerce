@@ -39,7 +39,7 @@ class ProductShoppingCartTile extends StatelessWidget {
                   children: [
                     const FruitBoxSpacer.xSmall(),
                     Text(
-                      '4kg - R\$ 40,00',
+                      '2kg - R\$ 20,00',
                       style: FruitTheme().primaryTextTheme.bodyText2,
                     ),
                   ],
