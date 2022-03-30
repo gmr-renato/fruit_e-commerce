@@ -18,6 +18,17 @@ class UniqueID extends AValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 }
 
+class URL extends AValueObject<String> {
+  factory URL(String input) {
+    return URL._(validateStringNotEmpty(input).flatMap(validateURL));
+  }
+
+  const URL._(this.value);
+
+  @override
+  final Either<ValueFailure<String>, String> value;
+}
+
 class IsoCountryCode extends AValueObject<String> {
   factory IsoCountryCode(String input) => IsoCountryCode._(
         validateMatchStringLength(
@@ -29,6 +40,16 @@ class IsoCountryCode extends AValueObject<String> {
       );
 
   const IsoCountryCode._(this.value);
+
+  @override
+  final Either<ValueFailure<String>, String> value;
+}
+
+class ColorCode extends AValueObject<String> {
+  // TODO: validate is integer
+  factory ColorCode(String input) => ColorCode._(right(input));
+
+  const ColorCode._(this.value);
 
   @override
   final Either<ValueFailure<String>, String> value;

@@ -28,6 +28,16 @@ Either<ValueFailure<String>, String> validateMatchStringLength(
   }
 }
 
+Either<ValueFailure<String>, String> validateURL(String input) {
+  if (Uri.tryParse(input)?.isAbsolute ?? false) {
+    return right(input);
+  } else {
+    return left(
+      ValueFailure.invalidURL(failedValue: input),
+    );
+  }
+}
+
 Either<ValueFailure<String>, String> validateIsoCountryCodeIsCovered(
   String input,
 ) {
