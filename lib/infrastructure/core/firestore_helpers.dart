@@ -29,7 +29,7 @@ Either<Failure, Product> productFromFirestore(
   }
 }
 
-Map<String, Object?> eventToFirestore(
+Map<String, Object?> productToFirestore(
   Either<Failure, Product> event,
   SetOptions? setOptions,
 ) =>
