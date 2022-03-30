@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 
+import '../../infrastructure/core/get_initializer.dart';
+
 class ProductShoppingCartTile extends StatelessWidget {
   const ProductShoppingCartTile({
     Key? key,
@@ -31,7 +33,7 @@ class ProductShoppingCartTile extends StatelessWidget {
                     const FruitBoxSpacer.xSmall(),
                     Text(
                       'Morango',
-                      style: FruitTheme().primaryTextTheme.bodyText1,
+                      style: getIt<FruitTheme>().primaryTextTheme.bodyText1,
                     ),
                   ],
                 ),
@@ -40,7 +42,7 @@ class ProductShoppingCartTile extends StatelessWidget {
                     const FruitBoxSpacer.xSmall(),
                     Text(
                       '2kg - R\$ 20,00',
-                      style: FruitTheme().primaryTextTheme.bodyText2,
+                      style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
                     ),
                   ],
                 ),
@@ -48,13 +50,13 @@ class ProductShoppingCartTile extends StatelessWidget {
             ),
           ),
           Material(
-            color: FruitTheme().colorScheme.primary,
+            color: getIt<FruitTheme>().colorScheme.primary,
             borderRadius: BorderRadius.circular(FruitUnit.xxxLarge),
             child: Padding(
               padding: const EdgeInsets.all(FruitUnit.small),
               child: Icon(
                 Icons.remove,
-                color: FruitTheme().colorScheme.onPrimary,
+                color: getIt<FruitTheme>().colorScheme.onPrimary,
               ),
             ),
           ),

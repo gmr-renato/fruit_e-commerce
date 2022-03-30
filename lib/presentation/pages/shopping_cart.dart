@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 
+import '../../infrastructure/core/get_initializer.dart';
 import '../widgets/product_shopping_bag_tile.dart';
 
 class ShoppingCartPage extends StatelessWidget {
@@ -25,7 +26,7 @@ class ShoppingCartPage extends StatelessWidget {
                       child: Center(
                         child: Text(
                           'Sacola',
-                          style: FruitTheme().primaryTextTheme.headline5,
+                          style: getIt<FruitTheme>().primaryTextTheme.headline5,
                         ),
                       ),
                     ),
@@ -69,7 +70,7 @@ class ShoppingCartPage extends StatelessWidget {
                 top: Radius.circular(FruitUnit.large),
               ),
             ),
-            color: FruitTheme().colorScheme.secondary,
+            color: getIt<FruitTheme>().colorScheme.secondary,
             child: SafeArea(
               child: Column(
                 children: [
@@ -80,7 +81,8 @@ class ShoppingCartPage extends StatelessWidget {
                       children: [
                         Text(
                           'Total: R\$ 80,00',
-                          style: FruitTheme().secondaryTextTheme.bodyText1,
+                          style:
+                              getIt<FruitTheme>().secondaryTextTheme.bodyText1,
                         ),
                       ],
                     ),

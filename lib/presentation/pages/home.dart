@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
+import '../../infrastructure/core/get_initializer.dart';
 import '../helpers/full_screen_bottom_sheet_hight.dart';
 import '../helpers/show_full_screen_bottom_sheet.dart';
 import '../widgets/new_product_card.dart';
@@ -31,7 +32,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.all(FruitUnit.medium),
             child: Text(
               'Aproveite nossas novidades!',
-              style: FruitTheme().themeData.textTheme.headline5,
+              style: getIt<FruitTheme>().themeData.textTheme.headline5,
             ),
           ),
           SizedBox(
@@ -51,7 +52,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.all(FruitUnit.medium),
             child: Text(
               'Todas as frutas',
-              style: FruitTheme().themeData.textTheme.headline5,
+              style: getIt<FruitTheme>().themeData.textTheme.headline5,
             ),
           ),
           ListView.separated(

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 
+import '../../infrastructure/core/get_initializer.dart';
 import '../helpers/show_full_screen_bottom_sheet.dart';
 import '../pages/product.dart';
 
@@ -31,7 +32,7 @@ class NewProductCard extends StatelessWidget {
                   children: [
                     Text(
                       'Morango',
-                      style: FruitTheme().primaryTextTheme.bodyText1,
+                      style: getIt<FruitTheme>().primaryTextTheme.bodyText1,
                     ),
                   ],
                 ),
@@ -39,7 +40,7 @@ class NewProductCard extends StatelessWidget {
                   children: [
                     Text(
                       'R\$ 10/kg',
-                      style: FruitTheme().primaryTextTheme.bodyText2,
+                      style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
                     ),
                   ],
                 ),

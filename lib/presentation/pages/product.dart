@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 
+import '../../infrastructure/core/get_initializer.dart';
+
 class ProductPage extends StatelessWidget {
   const ProductPage({Key? key}) : super(key: key);
 
@@ -58,7 +60,7 @@ class ProductPage extends StatelessWidget {
                         ),
                         child: Text(
                           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                          style: FruitTheme().primaryTextTheme.bodyText2,
+                          style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
                         ),
                       ),
                     ),
@@ -73,7 +75,7 @@ class ProductPage extends StatelessWidget {
                 top: Radius.circular(FruitUnit.large),
               ),
             ),
-            color: FruitTheme().colorScheme.secondary,
+            color: getIt<FruitTheme>().colorScheme.secondary,
             child: SafeArea(
               child: Column(
                 children: [
@@ -84,7 +86,8 @@ class ProductPage extends StatelessWidget {
                       children: [
                         Text(
                           'Morango',
-                          style: FruitTheme().secondaryTextTheme.headline6,
+                          style:
+                              getIt<FruitTheme>().secondaryTextTheme.headline6,
                         ),
                       ],
                     ),
@@ -95,37 +98,39 @@ class ProductPage extends StatelessWidget {
                     children: [
                       ClipOval(
                         child: Material(
-                          color: FruitTheme().colorScheme.primary,
+                          color: getIt<FruitTheme>().colorScheme.primary,
                           child: IconButton(
                             onPressed: () {},
                             icon: Icon(
                               Icons.remove,
-                              color: FruitTheme().colorScheme.onPrimary,
+                              color: getIt<FruitTheme>().colorScheme.onPrimary,
                             ),
                           ),
                         ),
                       ),
                       const FruitBoxSpacer.large(),
                       Material(
-                        color: FruitTheme().colorScheme.primary,
+                        color: getIt<FruitTheme>().colorScheme.primary,
                         borderRadius: BorderRadius.circular(FruitUnit.small),
                         child: Padding(
                           padding: const EdgeInsets.all(FruitUnit.medium),
                           child: Text(
                             '500 g',
-                            style: FruitTheme().secondaryTextTheme.bodyText1,
+                            style: getIt<FruitTheme>()
+                                .secondaryTextTheme
+                                .bodyText1,
                           ),
                         ),
                       ),
                       const FruitBoxSpacer.large(),
                       ClipOval(
                         child: Material(
-                          color: FruitTheme().colorScheme.primary,
+                          color: getIt<FruitTheme>().colorScheme.primary,
                           child: IconButton(
                             onPressed: () {},
                             icon: Icon(
                               Icons.add,
-                              color: FruitTheme().colorScheme.onPrimary,
+                              color: getIt<FruitTheme>().colorScheme.onPrimary,
                             ),
                           ),
                         ),
@@ -140,7 +145,8 @@ class ProductPage extends StatelessWidget {
                       children: [
                         Text(
                           'Total: R\$ 20,00',
-                          style: FruitTheme().secondaryTextTheme.headline6,
+                          style:
+                              getIt<FruitTheme>().secondaryTextTheme.headline6,
                         ),
                       ],
                     ),
