@@ -2,6 +2,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../domain/core/value_objects.dart';
 import '../domain/product.dart';
 
 part 'product_dto.freezed.dart';
@@ -26,4 +27,10 @@ class ProductDTO with _$ProductDTO {
 
   factory ProductDTO.fromJson(Map<String, dynamic> json) =>
       _$ProductDTOFromJson(json);
+
+  Product toDomain() => Product(
+        uid: UniqueID.fromSafeString(uid),
+        color: ColorCode(color),
+        imageURL: URL(imageURL),
+      );
 }
