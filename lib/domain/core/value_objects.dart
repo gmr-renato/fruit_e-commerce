@@ -18,6 +18,43 @@ class UniqueID extends AValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 }
 
+/// Name not empty, containing any letters, numbers, except special characters.
+///
+/// **Valid examples:** John, John 1123, John-123
+///
+/// **Invalid examples:** John*123, Jonath@n, $John
+class DisplayName extends AValueObject<String> {
+  factory DisplayName(String input) => DisplayName._(
+        validateMaxStringLength(
+          input,
+          DomainCoreConstants.maxDisplayNameLength,
+        )
+            .flatMap(validateStringNotEmpty)
+            .flatMap(validateHasDisplayNameValidCharacters)
+            .flatMap(validateSingleLineString),
+      );
+  const DisplayName._(this.value);
+
+  @override
+  final Either<ValueFailure<String>, String> value;
+}
+
+class DescriptionText extends AValueObject<String> {
+  factory DescriptionText(String input) => DescriptionText._(
+        validateStringNotEmpty(input).andThen(
+          validateMaxStringLength(
+            input,
+            DomainCoreConstants.maxDescriptionLength,
+          ),
+        ),
+      );
+
+  const DescriptionText._(this.value);
+
+  @override
+  final Either<ValueFailure<String>, String> value;
+}
+
 class URL extends AValueObject<String> {
   factory URL(String input) {
     return URL._(validateStringNotEmpty(input).flatMap(validateURL));
@@ -53,4 +90,47 @@ class ColorCode extends AValueObject<int> {
 
   @override
   final Either<ValueFailure<int>, int> value;
+}
+
+class Price extends AValueObject<double> {
+  factory Price(double input) {
+    return Price._(validatePositiveDouble(input));
+  }
+
+  const Price._(this.value);
+
+  @override
+  final Either<ValueFailure<double>, double> value;
+}
+
+class UnitType extends AValueObject<String> {
+  const UnitType._(this.value);
+
+  factory UnitType.fromString(String input) => UnitType._(
+        validateStringNotEmpty(input).flatMap(validateGuestStatus),
+      );
+
+  factory UnitType.invited() => UnitType._(
+        right(DomainCoreConstants.quilograms),
+      );
+  factory UnitType.going() => UnitType._(
+        right(DomainCoreConstants.unity),
+      );
+
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  bool isInvited() => getOrCrash() == DomainCoreConstants.quilograms;
+  bool isGoing() => getOrCrash() == DomainCoreConstants.unity;
+}
+
+class UnitInterval extends AValueObject<double> {
+  factory UnitInterval(double input) {
+    return UnitInterval._(validatePositiveDouble(input));
+  }
+
+  const UnitInterval._(this.value);
+
+  @override
+  final Either<ValueFailure<double>, double> value;
 }

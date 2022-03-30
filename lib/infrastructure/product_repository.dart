@@ -7,6 +7,7 @@ import 'core/firestore_extension.dart';
 
 class ProductRepository {
   ProductRepository(this._firestore);
+
   final FirebaseFirestore _firestore;
 
   Stream<Either<Failure, List<Either<Failure, Product>>>> watchAllPublic() {

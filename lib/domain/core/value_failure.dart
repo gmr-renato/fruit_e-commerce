@@ -17,6 +17,19 @@ class ValueFailure<T> with _$ValueFailure<T> {
     required int length,
   }) = _IncompatibleLength<T>;
 
+  const factory ValueFailure.exceedingLength({
+    required T failedValue,
+    required int max,
+  }) = _ExceedingLength<T>;
+
+  const factory ValueFailure.specialCharacterFound({
+    required T failedValue,
+  }) = _SpecialCharacterNotAllowed<T>;
+
+  const factory ValueFailure.multiline({
+    required T failedValue,
+  }) = _Multiline<T>;
+
   const factory ValueFailure.invalidURL({
     required T failedValue,
   }) = _InvalidURL<T>;
@@ -40,4 +53,8 @@ class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.countryCodeNotCovered({
     required T failedValue,
   }) = CountryCodeNotCovered<T>;
+
+  const factory ValueFailure.unitTypeNotFound({
+    required T failedValue,
+  }) = _UnitTypeNotFound<T>;
 }

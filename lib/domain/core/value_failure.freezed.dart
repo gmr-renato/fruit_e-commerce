@@ -38,6 +38,27 @@ class _$ValueFailureTearOff {
     );
   }
 
+  _ExceedingLength<T> exceedingLength<T>(
+      {required T failedValue, required int max}) {
+    return _ExceedingLength<T>(
+      failedValue: failedValue,
+      max: max,
+    );
+  }
+
+  _SpecialCharacterNotAllowed<T> specialCharacterFound<T>(
+      {required T failedValue}) {
+    return _SpecialCharacterNotAllowed<T>(
+      failedValue: failedValue,
+    );
+  }
+
+  _Multiline<T> multiline<T>({required T failedValue}) {
+    return _Multiline<T>(
+      failedValue: failedValue,
+    );
+  }
+
   _InvalidURL<T> invalidURL<T>({required T failedValue}) {
     return _InvalidURL<T>(
       failedValue: failedValue,
@@ -73,6 +94,12 @@ class _$ValueFailureTearOff {
       failedValue: failedValue,
     );
   }
+
+  _UnitTypeNotFound<T> unitTypeNotFound<T>({required T failedValue}) {
+    return _UnitTypeNotFound<T>(
+      failedValue: failedValue,
+    );
+  }
 }
 
 /// @nodoc
@@ -85,12 +112,16 @@ mixin _$ValueFailure<T> {
     required TResult Function(T? failedValue) unexpected,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) isNotBool,
     required TResult Function(T failedValue) isNotDouble,
     required TResult Function(T failedValue) isNotPositiveDouble,
     required TResult Function(T failedValue) isNotPositiveInt,
     required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -98,12 +129,16 @@ mixin _$ValueFailure<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,12 +146,16 @@ mixin _$ValueFailure<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,6 +164,10 @@ mixin _$ValueFailure<T> {
     required TResult Function(_Unexpected<T> value) unexpected,
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
     required TResult Function(_InvalidURL<T> value) invalidURL,
     required TResult Function(_IsNotBool<T> value) isNotBool,
     required TResult Function(_IsNotDouble<T> value) isNotDouble,
@@ -133,6 +176,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
     required TResult Function(CountryCodeNotCovered<T> value)
         countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -140,12 +184,17 @@ mixin _$ValueFailure<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -153,12 +202,17 @@ mixin _$ValueFailure<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -250,12 +304,16 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     required TResult Function(T? failedValue) unexpected,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) isNotBool,
     required TResult Function(T failedValue) isNotDouble,
     required TResult Function(T failedValue) isNotPositiveDouble,
     required TResult Function(T failedValue) isNotPositiveInt,
     required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
   }) {
     return unexpected(failedValue);
   }
@@ -266,12 +324,16 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
   }) {
     return unexpected?.call(failedValue);
   }
@@ -282,12 +344,16 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -302,6 +368,10 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     required TResult Function(_Unexpected<T> value) unexpected,
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
     required TResult Function(_InvalidURL<T> value) invalidURL,
     required TResult Function(_IsNotBool<T> value) isNotBool,
     required TResult Function(_IsNotDouble<T> value) isNotDouble,
@@ -310,6 +380,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
     required TResult Function(CountryCodeNotCovered<T> value)
         countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
   }) {
     return unexpected(this);
   }
@@ -320,12 +391,17 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
   }) {
     return unexpected?.call(this);
   }
@@ -336,12 +412,17 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -426,12 +507,16 @@ class _$_Empty<T> implements _Empty<T> {
     required TResult Function(T? failedValue) unexpected,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) isNotBool,
     required TResult Function(T failedValue) isNotDouble,
     required TResult Function(T failedValue) isNotPositiveDouble,
     required TResult Function(T failedValue) isNotPositiveInt,
     required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
   }) {
     return empty(failedValue);
   }
@@ -442,12 +527,16 @@ class _$_Empty<T> implements _Empty<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
   }) {
     return empty?.call(failedValue);
   }
@@ -458,12 +547,16 @@ class _$_Empty<T> implements _Empty<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -478,6 +571,10 @@ class _$_Empty<T> implements _Empty<T> {
     required TResult Function(_Unexpected<T> value) unexpected,
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
     required TResult Function(_InvalidURL<T> value) invalidURL,
     required TResult Function(_IsNotBool<T> value) isNotBool,
     required TResult Function(_IsNotDouble<T> value) isNotDouble,
@@ -486,6 +583,7 @@ class _$_Empty<T> implements _Empty<T> {
     required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
     required TResult Function(CountryCodeNotCovered<T> value)
         countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
   }) {
     return empty(this);
   }
@@ -496,12 +594,17 @@ class _$_Empty<T> implements _Empty<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
   }) {
     return empty?.call(this);
   }
@@ -512,12 +615,17 @@ class _$_Empty<T> implements _Empty<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -617,12 +725,16 @@ class _$_IncompatibleLength<T> implements _IncompatibleLength<T> {
     required TResult Function(T? failedValue) unexpected,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) isNotBool,
     required TResult Function(T failedValue) isNotDouble,
     required TResult Function(T failedValue) isNotPositiveDouble,
     required TResult Function(T failedValue) isNotPositiveInt,
     required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
   }) {
     return incompatibleLength(failedValue, length);
   }
@@ -633,12 +745,16 @@ class _$_IncompatibleLength<T> implements _IncompatibleLength<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
   }) {
     return incompatibleLength?.call(failedValue, length);
   }
@@ -649,12 +765,16 @@ class _$_IncompatibleLength<T> implements _IncompatibleLength<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (incompatibleLength != null) {
@@ -669,6 +789,10 @@ class _$_IncompatibleLength<T> implements _IncompatibleLength<T> {
     required TResult Function(_Unexpected<T> value) unexpected,
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
     required TResult Function(_InvalidURL<T> value) invalidURL,
     required TResult Function(_IsNotBool<T> value) isNotBool,
     required TResult Function(_IsNotDouble<T> value) isNotDouble,
@@ -677,6 +801,7 @@ class _$_IncompatibleLength<T> implements _IncompatibleLength<T> {
     required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
     required TResult Function(CountryCodeNotCovered<T> value)
         countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
   }) {
     return incompatibleLength(this);
   }
@@ -687,12 +812,17 @@ class _$_IncompatibleLength<T> implements _IncompatibleLength<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
   }) {
     return incompatibleLength?.call(this);
   }
@@ -703,12 +833,17 @@ class _$_IncompatibleLength<T> implements _IncompatibleLength<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (incompatibleLength != null) {
@@ -726,6 +861,642 @@ abstract class _IncompatibleLength<T> implements ValueFailure<T> {
   int get length;
   @JsonKey(ignore: true)
   _$IncompatibleLengthCopyWith<T, _IncompatibleLength<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ExceedingLengthCopyWith<T, $Res> {
+  factory _$ExceedingLengthCopyWith(
+          _ExceedingLength<T> value, $Res Function(_ExceedingLength<T>) then) =
+      __$ExceedingLengthCopyWithImpl<T, $Res>;
+  $Res call({T failedValue, int max});
+}
+
+/// @nodoc
+class __$ExceedingLengthCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$ExceedingLengthCopyWith<T, $Res> {
+  __$ExceedingLengthCopyWithImpl(
+      _ExceedingLength<T> _value, $Res Function(_ExceedingLength<T>) _then)
+      : super(_value, (v) => _then(v as _ExceedingLength<T>));
+
+  @override
+  _ExceedingLength<T> get _value => super._value as _ExceedingLength<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+    Object? max = freezed,
+  }) {
+    return _then(_ExceedingLength<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+      max: max == freezed
+          ? _value.max
+          : max // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ExceedingLength<T> implements _ExceedingLength<T> {
+  const _$_ExceedingLength({required this.failedValue, required this.max});
+
+  @override
+  final T failedValue;
+  @override
+  final int max;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.exceedingLength(failedValue: $failedValue, max: $max)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ExceedingLength<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue) &&
+            const DeepCollectionEquality().equals(other.max, max));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(failedValue),
+      const DeepCollectionEquality().hash(max));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ExceedingLengthCopyWith<T, _ExceedingLength<T>> get copyWith =>
+      __$ExceedingLengthCopyWithImpl<T, _ExceedingLength<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T? failedValue) unexpected,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
+    required TResult Function(T failedValue) invalidURL,
+    required TResult Function(T failedValue) isNotBool,
+    required TResult Function(T failedValue) isNotDouble,
+    required TResult Function(T failedValue) isNotPositiveDouble,
+    required TResult Function(T failedValue) isNotPositiveInt,
+    required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
+  }) {
+    return exceedingLength(failedValue, max);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T? failedValue)? unexpected,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? invalidURL,
+    TResult Function(T failedValue)? isNotBool,
+    TResult Function(T failedValue)? isNotDouble,
+    TResult Function(T failedValue)? isNotPositiveDouble,
+    TResult Function(T failedValue)? isNotPositiveInt,
+    TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
+  }) {
+    return exceedingLength?.call(failedValue, max);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T? failedValue)? unexpected,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? invalidURL,
+    TResult Function(T failedValue)? isNotBool,
+    TResult Function(T failedValue)? isNotDouble,
+    TResult Function(T failedValue)? isNotPositiveDouble,
+    TResult Function(T failedValue)? isNotPositiveInt,
+    TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
+    required TResult orElse(),
+  }) {
+    if (exceedingLength != null) {
+      return exceedingLength(failedValue, max);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
+    required TResult Function(_InvalidURL<T> value) invalidURL,
+    required TResult Function(_IsNotBool<T> value) isNotBool,
+    required TResult Function(_IsNotDouble<T> value) isNotDouble,
+    required TResult Function(_IsNotPositiveDouble<T> value)
+        isNotPositiveDouble,
+    required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
+    required TResult Function(CountryCodeNotCovered<T> value)
+        countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
+  }) {
+    return exceedingLength(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
+    TResult Function(_InvalidURL<T> value)? invalidURL,
+    TResult Function(_IsNotBool<T> value)? isNotBool,
+    TResult Function(_IsNotDouble<T> value)? isNotDouble,
+    TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
+    TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
+    TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
+  }) {
+    return exceedingLength?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
+    TResult Function(_InvalidURL<T> value)? invalidURL,
+    TResult Function(_IsNotBool<T> value)? isNotBool,
+    TResult Function(_IsNotDouble<T> value)? isNotDouble,
+    TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
+    TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
+    TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
+    required TResult orElse(),
+  }) {
+    if (exceedingLength != null) {
+      return exceedingLength(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ExceedingLength<T> implements ValueFailure<T> {
+  const factory _ExceedingLength({required T failedValue, required int max}) =
+      _$_ExceedingLength<T>;
+
+  T get failedValue;
+  int get max;
+  @JsonKey(ignore: true)
+  _$ExceedingLengthCopyWith<T, _ExceedingLength<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SpecialCharacterNotAllowedCopyWith<T, $Res> {
+  factory _$SpecialCharacterNotAllowedCopyWith(
+          _SpecialCharacterNotAllowed<T> value,
+          $Res Function(_SpecialCharacterNotAllowed<T>) then) =
+      __$SpecialCharacterNotAllowedCopyWithImpl<T, $Res>;
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$SpecialCharacterNotAllowedCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$SpecialCharacterNotAllowedCopyWith<T, $Res> {
+  __$SpecialCharacterNotAllowedCopyWithImpl(
+      _SpecialCharacterNotAllowed<T> _value,
+      $Res Function(_SpecialCharacterNotAllowed<T>) _then)
+      : super(_value, (v) => _then(v as _SpecialCharacterNotAllowed<T>));
+
+  @override
+  _SpecialCharacterNotAllowed<T> get _value =>
+      super._value as _SpecialCharacterNotAllowed<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_SpecialCharacterNotAllowed<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SpecialCharacterNotAllowed<T>
+    implements _SpecialCharacterNotAllowed<T> {
+  const _$_SpecialCharacterNotAllowed({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.specialCharacterFound(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SpecialCharacterNotAllowed<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  _$SpecialCharacterNotAllowedCopyWith<T, _SpecialCharacterNotAllowed<T>>
+      get copyWith => __$SpecialCharacterNotAllowedCopyWithImpl<T,
+          _SpecialCharacterNotAllowed<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T? failedValue) unexpected,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
+    required TResult Function(T failedValue) invalidURL,
+    required TResult Function(T failedValue) isNotBool,
+    required TResult Function(T failedValue) isNotDouble,
+    required TResult Function(T failedValue) isNotPositiveDouble,
+    required TResult Function(T failedValue) isNotPositiveInt,
+    required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
+  }) {
+    return specialCharacterFound(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T? failedValue)? unexpected,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? invalidURL,
+    TResult Function(T failedValue)? isNotBool,
+    TResult Function(T failedValue)? isNotDouble,
+    TResult Function(T failedValue)? isNotPositiveDouble,
+    TResult Function(T failedValue)? isNotPositiveInt,
+    TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
+  }) {
+    return specialCharacterFound?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T? failedValue)? unexpected,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? invalidURL,
+    TResult Function(T failedValue)? isNotBool,
+    TResult Function(T failedValue)? isNotDouble,
+    TResult Function(T failedValue)? isNotPositiveDouble,
+    TResult Function(T failedValue)? isNotPositiveInt,
+    TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
+    required TResult orElse(),
+  }) {
+    if (specialCharacterFound != null) {
+      return specialCharacterFound(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
+    required TResult Function(_InvalidURL<T> value) invalidURL,
+    required TResult Function(_IsNotBool<T> value) isNotBool,
+    required TResult Function(_IsNotDouble<T> value) isNotDouble,
+    required TResult Function(_IsNotPositiveDouble<T> value)
+        isNotPositiveDouble,
+    required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
+    required TResult Function(CountryCodeNotCovered<T> value)
+        countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
+  }) {
+    return specialCharacterFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
+    TResult Function(_InvalidURL<T> value)? invalidURL,
+    TResult Function(_IsNotBool<T> value)? isNotBool,
+    TResult Function(_IsNotDouble<T> value)? isNotDouble,
+    TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
+    TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
+    TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
+  }) {
+    return specialCharacterFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
+    TResult Function(_InvalidURL<T> value)? invalidURL,
+    TResult Function(_IsNotBool<T> value)? isNotBool,
+    TResult Function(_IsNotDouble<T> value)? isNotDouble,
+    TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
+    TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
+    TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
+    required TResult orElse(),
+  }) {
+    if (specialCharacterFound != null) {
+      return specialCharacterFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SpecialCharacterNotAllowed<T> implements ValueFailure<T> {
+  const factory _SpecialCharacterNotAllowed({required T failedValue}) =
+      _$_SpecialCharacterNotAllowed<T>;
+
+  T get failedValue;
+  @JsonKey(ignore: true)
+  _$SpecialCharacterNotAllowedCopyWith<T, _SpecialCharacterNotAllowed<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$MultilineCopyWith<T, $Res> {
+  factory _$MultilineCopyWith(
+          _Multiline<T> value, $Res Function(_Multiline<T>) then) =
+      __$MultilineCopyWithImpl<T, $Res>;
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$MultilineCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$MultilineCopyWith<T, $Res> {
+  __$MultilineCopyWithImpl(
+      _Multiline<T> _value, $Res Function(_Multiline<T>) _then)
+      : super(_value, (v) => _then(v as _Multiline<T>));
+
+  @override
+  _Multiline<T> get _value => super._value as _Multiline<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_Multiline<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Multiline<T> implements _Multiline<T> {
+  const _$_Multiline({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.multiline(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Multiline<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  _$MultilineCopyWith<T, _Multiline<T>> get copyWith =>
+      __$MultilineCopyWithImpl<T, _Multiline<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T? failedValue) unexpected,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
+    required TResult Function(T failedValue) invalidURL,
+    required TResult Function(T failedValue) isNotBool,
+    required TResult Function(T failedValue) isNotDouble,
+    required TResult Function(T failedValue) isNotPositiveDouble,
+    required TResult Function(T failedValue) isNotPositiveInt,
+    required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
+  }) {
+    return multiline(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T? failedValue)? unexpected,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? invalidURL,
+    TResult Function(T failedValue)? isNotBool,
+    TResult Function(T failedValue)? isNotDouble,
+    TResult Function(T failedValue)? isNotPositiveDouble,
+    TResult Function(T failedValue)? isNotPositiveInt,
+    TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
+  }) {
+    return multiline?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T? failedValue)? unexpected,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? invalidURL,
+    TResult Function(T failedValue)? isNotBool,
+    TResult Function(T failedValue)? isNotDouble,
+    TResult Function(T failedValue)? isNotPositiveDouble,
+    TResult Function(T failedValue)? isNotPositiveInt,
+    TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
+    required TResult orElse(),
+  }) {
+    if (multiline != null) {
+      return multiline(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
+    required TResult Function(_InvalidURL<T> value) invalidURL,
+    required TResult Function(_IsNotBool<T> value) isNotBool,
+    required TResult Function(_IsNotDouble<T> value) isNotDouble,
+    required TResult Function(_IsNotPositiveDouble<T> value)
+        isNotPositiveDouble,
+    required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
+    required TResult Function(CountryCodeNotCovered<T> value)
+        countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
+  }) {
+    return multiline(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
+    TResult Function(_InvalidURL<T> value)? invalidURL,
+    TResult Function(_IsNotBool<T> value)? isNotBool,
+    TResult Function(_IsNotDouble<T> value)? isNotDouble,
+    TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
+    TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
+    TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
+  }) {
+    return multiline?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
+    TResult Function(_InvalidURL<T> value)? invalidURL,
+    TResult Function(_IsNotBool<T> value)? isNotBool,
+    TResult Function(_IsNotDouble<T> value)? isNotDouble,
+    TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
+    TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
+    TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
+    required TResult orElse(),
+  }) {
+    if (multiline != null) {
+      return multiline(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Multiline<T> implements ValueFailure<T> {
+  const factory _Multiline({required T failedValue}) = _$_Multiline<T>;
+
+  T get failedValue;
+  @JsonKey(ignore: true)
+  _$MultilineCopyWith<T, _Multiline<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -798,12 +1569,16 @@ class _$_InvalidURL<T> implements _InvalidURL<T> {
     required TResult Function(T? failedValue) unexpected,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) isNotBool,
     required TResult Function(T failedValue) isNotDouble,
     required TResult Function(T failedValue) isNotPositiveDouble,
     required TResult Function(T failedValue) isNotPositiveInt,
     required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
   }) {
     return invalidURL(failedValue);
   }
@@ -814,12 +1589,16 @@ class _$_InvalidURL<T> implements _InvalidURL<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
   }) {
     return invalidURL?.call(failedValue);
   }
@@ -830,12 +1609,16 @@ class _$_InvalidURL<T> implements _InvalidURL<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (invalidURL != null) {
@@ -850,6 +1633,10 @@ class _$_InvalidURL<T> implements _InvalidURL<T> {
     required TResult Function(_Unexpected<T> value) unexpected,
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
     required TResult Function(_InvalidURL<T> value) invalidURL,
     required TResult Function(_IsNotBool<T> value) isNotBool,
     required TResult Function(_IsNotDouble<T> value) isNotDouble,
@@ -858,6 +1645,7 @@ class _$_InvalidURL<T> implements _InvalidURL<T> {
     required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
     required TResult Function(CountryCodeNotCovered<T> value)
         countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
   }) {
     return invalidURL(this);
   }
@@ -868,12 +1656,17 @@ class _$_InvalidURL<T> implements _InvalidURL<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
   }) {
     return invalidURL?.call(this);
   }
@@ -884,12 +1677,17 @@ class _$_InvalidURL<T> implements _InvalidURL<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (invalidURL != null) {
@@ -977,12 +1775,16 @@ class _$_IsNotBool<T> implements _IsNotBool<T> {
     required TResult Function(T? failedValue) unexpected,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) isNotBool,
     required TResult Function(T failedValue) isNotDouble,
     required TResult Function(T failedValue) isNotPositiveDouble,
     required TResult Function(T failedValue) isNotPositiveInt,
     required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
   }) {
     return isNotBool(failedValue);
   }
@@ -993,12 +1795,16 @@ class _$_IsNotBool<T> implements _IsNotBool<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
   }) {
     return isNotBool?.call(failedValue);
   }
@@ -1009,12 +1815,16 @@ class _$_IsNotBool<T> implements _IsNotBool<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (isNotBool != null) {
@@ -1029,6 +1839,10 @@ class _$_IsNotBool<T> implements _IsNotBool<T> {
     required TResult Function(_Unexpected<T> value) unexpected,
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
     required TResult Function(_InvalidURL<T> value) invalidURL,
     required TResult Function(_IsNotBool<T> value) isNotBool,
     required TResult Function(_IsNotDouble<T> value) isNotDouble,
@@ -1037,6 +1851,7 @@ class _$_IsNotBool<T> implements _IsNotBool<T> {
     required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
     required TResult Function(CountryCodeNotCovered<T> value)
         countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
   }) {
     return isNotBool(this);
   }
@@ -1047,12 +1862,17 @@ class _$_IsNotBool<T> implements _IsNotBool<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
   }) {
     return isNotBool?.call(this);
   }
@@ -1063,12 +1883,17 @@ class _$_IsNotBool<T> implements _IsNotBool<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (isNotBool != null) {
@@ -1156,12 +1981,16 @@ class _$_IsNotDouble<T> implements _IsNotDouble<T> {
     required TResult Function(T? failedValue) unexpected,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) isNotBool,
     required TResult Function(T failedValue) isNotDouble,
     required TResult Function(T failedValue) isNotPositiveDouble,
     required TResult Function(T failedValue) isNotPositiveInt,
     required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
   }) {
     return isNotDouble(failedValue);
   }
@@ -1172,12 +2001,16 @@ class _$_IsNotDouble<T> implements _IsNotDouble<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
   }) {
     return isNotDouble?.call(failedValue);
   }
@@ -1188,12 +2021,16 @@ class _$_IsNotDouble<T> implements _IsNotDouble<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (isNotDouble != null) {
@@ -1208,6 +2045,10 @@ class _$_IsNotDouble<T> implements _IsNotDouble<T> {
     required TResult Function(_Unexpected<T> value) unexpected,
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
     required TResult Function(_InvalidURL<T> value) invalidURL,
     required TResult Function(_IsNotBool<T> value) isNotBool,
     required TResult Function(_IsNotDouble<T> value) isNotDouble,
@@ -1216,6 +2057,7 @@ class _$_IsNotDouble<T> implements _IsNotDouble<T> {
     required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
     required TResult Function(CountryCodeNotCovered<T> value)
         countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
   }) {
     return isNotDouble(this);
   }
@@ -1226,12 +2068,17 @@ class _$_IsNotDouble<T> implements _IsNotDouble<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
   }) {
     return isNotDouble?.call(this);
   }
@@ -1242,12 +2089,17 @@ class _$_IsNotDouble<T> implements _IsNotDouble<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (isNotDouble != null) {
@@ -1336,12 +2188,16 @@ class _$_IsNotPositiveDouble<T> implements _IsNotPositiveDouble<T> {
     required TResult Function(T? failedValue) unexpected,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) isNotBool,
     required TResult Function(T failedValue) isNotDouble,
     required TResult Function(T failedValue) isNotPositiveDouble,
     required TResult Function(T failedValue) isNotPositiveInt,
     required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
   }) {
     return isNotPositiveDouble(failedValue);
   }
@@ -1352,12 +2208,16 @@ class _$_IsNotPositiveDouble<T> implements _IsNotPositiveDouble<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
   }) {
     return isNotPositiveDouble?.call(failedValue);
   }
@@ -1368,12 +2228,16 @@ class _$_IsNotPositiveDouble<T> implements _IsNotPositiveDouble<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (isNotPositiveDouble != null) {
@@ -1388,6 +2252,10 @@ class _$_IsNotPositiveDouble<T> implements _IsNotPositiveDouble<T> {
     required TResult Function(_Unexpected<T> value) unexpected,
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
     required TResult Function(_InvalidURL<T> value) invalidURL,
     required TResult Function(_IsNotBool<T> value) isNotBool,
     required TResult Function(_IsNotDouble<T> value) isNotDouble,
@@ -1396,6 +2264,7 @@ class _$_IsNotPositiveDouble<T> implements _IsNotPositiveDouble<T> {
     required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
     required TResult Function(CountryCodeNotCovered<T> value)
         countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
   }) {
     return isNotPositiveDouble(this);
   }
@@ -1406,12 +2275,17 @@ class _$_IsNotPositiveDouble<T> implements _IsNotPositiveDouble<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
   }) {
     return isNotPositiveDouble?.call(this);
   }
@@ -1422,12 +2296,17 @@ class _$_IsNotPositiveDouble<T> implements _IsNotPositiveDouble<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (isNotPositiveDouble != null) {
@@ -1517,12 +2396,16 @@ class _$_IsNotPositiveInt<T> implements _IsNotPositiveInt<T> {
     required TResult Function(T? failedValue) unexpected,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) isNotBool,
     required TResult Function(T failedValue) isNotDouble,
     required TResult Function(T failedValue) isNotPositiveDouble,
     required TResult Function(T failedValue) isNotPositiveInt,
     required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
   }) {
     return isNotPositiveInt(failedValue);
   }
@@ -1533,12 +2416,16 @@ class _$_IsNotPositiveInt<T> implements _IsNotPositiveInt<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
   }) {
     return isNotPositiveInt?.call(failedValue);
   }
@@ -1549,12 +2436,16 @@ class _$_IsNotPositiveInt<T> implements _IsNotPositiveInt<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (isNotPositiveInt != null) {
@@ -1569,6 +2460,10 @@ class _$_IsNotPositiveInt<T> implements _IsNotPositiveInt<T> {
     required TResult Function(_Unexpected<T> value) unexpected,
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
     required TResult Function(_InvalidURL<T> value) invalidURL,
     required TResult Function(_IsNotBool<T> value) isNotBool,
     required TResult Function(_IsNotDouble<T> value) isNotDouble,
@@ -1577,6 +2472,7 @@ class _$_IsNotPositiveInt<T> implements _IsNotPositiveInt<T> {
     required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
     required TResult Function(CountryCodeNotCovered<T> value)
         countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
   }) {
     return isNotPositiveInt(this);
   }
@@ -1587,12 +2483,17 @@ class _$_IsNotPositiveInt<T> implements _IsNotPositiveInt<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
   }) {
     return isNotPositiveInt?.call(this);
   }
@@ -1603,12 +2504,17 @@ class _$_IsNotPositiveInt<T> implements _IsNotPositiveInt<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (isNotPositiveInt != null) {
@@ -1699,12 +2605,16 @@ class _$CountryCodeNotCovered<T> implements CountryCodeNotCovered<T> {
     required TResult Function(T? failedValue) unexpected,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) isNotBool,
     required TResult Function(T failedValue) isNotDouble,
     required TResult Function(T failedValue) isNotPositiveDouble,
     required TResult Function(T failedValue) isNotPositiveInt,
     required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
   }) {
     return countryCodeNotCovered(failedValue);
   }
@@ -1715,12 +2625,16 @@ class _$CountryCodeNotCovered<T> implements CountryCodeNotCovered<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
   }) {
     return countryCodeNotCovered?.call(failedValue);
   }
@@ -1731,12 +2645,16 @@ class _$CountryCodeNotCovered<T> implements CountryCodeNotCovered<T> {
     TResult Function(T? failedValue)? unexpected,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? isNotBool,
     TResult Function(T failedValue)? isNotDouble,
     TResult Function(T failedValue)? isNotPositiveDouble,
     TResult Function(T failedValue)? isNotPositiveInt,
     TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (countryCodeNotCovered != null) {
@@ -1751,6 +2669,10 @@ class _$CountryCodeNotCovered<T> implements CountryCodeNotCovered<T> {
     required TResult Function(_Unexpected<T> value) unexpected,
     required TResult Function(_Empty<T> value) empty,
     required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
     required TResult Function(_InvalidURL<T> value) invalidURL,
     required TResult Function(_IsNotBool<T> value) isNotBool,
     required TResult Function(_IsNotDouble<T> value) isNotDouble,
@@ -1759,6 +2681,7 @@ class _$CountryCodeNotCovered<T> implements CountryCodeNotCovered<T> {
     required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
     required TResult Function(CountryCodeNotCovered<T> value)
         countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
   }) {
     return countryCodeNotCovered(this);
   }
@@ -1769,12 +2692,17 @@ class _$CountryCodeNotCovered<T> implements CountryCodeNotCovered<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
   }) {
     return countryCodeNotCovered?.call(this);
   }
@@ -1785,12 +2713,17 @@ class _$CountryCodeNotCovered<T> implements CountryCodeNotCovered<T> {
     TResult Function(_Unexpected<T> value)? unexpected,
     TResult Function(_Empty<T> value)? empty,
     TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
     TResult Function(_InvalidURL<T> value)? invalidURL,
     TResult Function(_IsNotBool<T> value)? isNotBool,
     TResult Function(_IsNotDouble<T> value)? isNotDouble,
     TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
     TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
     TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
     required TResult orElse(),
   }) {
     if (countryCodeNotCovered != null) {
@@ -1807,5 +2740,213 @@ abstract class CountryCodeNotCovered<T> implements ValueFailure<T> {
   T get failedValue;
   @JsonKey(ignore: true)
   $CountryCodeNotCoveredCopyWith<T, CountryCodeNotCovered<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$UnitTypeNotFoundCopyWith<T, $Res> {
+  factory _$UnitTypeNotFoundCopyWith(_UnitTypeNotFound<T> value,
+          $Res Function(_UnitTypeNotFound<T>) then) =
+      __$UnitTypeNotFoundCopyWithImpl<T, $Res>;
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$UnitTypeNotFoundCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$UnitTypeNotFoundCopyWith<T, $Res> {
+  __$UnitTypeNotFoundCopyWithImpl(
+      _UnitTypeNotFound<T> _value, $Res Function(_UnitTypeNotFound<T>) _then)
+      : super(_value, (v) => _then(v as _UnitTypeNotFound<T>));
+
+  @override
+  _UnitTypeNotFound<T> get _value => super._value as _UnitTypeNotFound<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_UnitTypeNotFound<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UnitTypeNotFound<T> implements _UnitTypeNotFound<T> {
+  const _$_UnitTypeNotFound({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.unitTypeNotFound(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _UnitTypeNotFound<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  _$UnitTypeNotFoundCopyWith<T, _UnitTypeNotFound<T>> get copyWith =>
+      __$UnitTypeNotFoundCopyWithImpl<T, _UnitTypeNotFound<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T? failedValue) unexpected,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue, int length) incompatibleLength,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) specialCharacterFound,
+    required TResult Function(T failedValue) multiline,
+    required TResult Function(T failedValue) invalidURL,
+    required TResult Function(T failedValue) isNotBool,
+    required TResult Function(T failedValue) isNotDouble,
+    required TResult Function(T failedValue) isNotPositiveDouble,
+    required TResult Function(T failedValue) isNotPositiveInt,
+    required TResult Function(T failedValue) countryCodeNotCovered,
+    required TResult Function(T failedValue) unitTypeNotFound,
+  }) {
+    return unitTypeNotFound(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T? failedValue)? unexpected,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? invalidURL,
+    TResult Function(T failedValue)? isNotBool,
+    TResult Function(T failedValue)? isNotDouble,
+    TResult Function(T failedValue)? isNotPositiveDouble,
+    TResult Function(T failedValue)? isNotPositiveInt,
+    TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
+  }) {
+    return unitTypeNotFound?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T? failedValue)? unexpected,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int length)? incompatibleLength,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? specialCharacterFound,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? invalidURL,
+    TResult Function(T failedValue)? isNotBool,
+    TResult Function(T failedValue)? isNotDouble,
+    TResult Function(T failedValue)? isNotPositiveDouble,
+    TResult Function(T failedValue)? isNotPositiveInt,
+    TResult Function(T failedValue)? countryCodeNotCovered,
+    TResult Function(T failedValue)? unitTypeNotFound,
+    required TResult orElse(),
+  }) {
+    if (unitTypeNotFound != null) {
+      return unitTypeNotFound(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_IncompatibleLength<T> value) incompatibleLength,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_SpecialCharacterNotAllowed<T> value)
+        specialCharacterFound,
+    required TResult Function(_Multiline<T> value) multiline,
+    required TResult Function(_InvalidURL<T> value) invalidURL,
+    required TResult Function(_IsNotBool<T> value) isNotBool,
+    required TResult Function(_IsNotDouble<T> value) isNotDouble,
+    required TResult Function(_IsNotPositiveDouble<T> value)
+        isNotPositiveDouble,
+    required TResult Function(_IsNotPositiveInt<T> value) isNotPositiveInt,
+    required TResult Function(CountryCodeNotCovered<T> value)
+        countryCodeNotCovered,
+    required TResult Function(_UnitTypeNotFound<T> value) unitTypeNotFound,
+  }) {
+    return unitTypeNotFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
+    TResult Function(_InvalidURL<T> value)? invalidURL,
+    TResult Function(_IsNotBool<T> value)? isNotBool,
+    TResult Function(_IsNotDouble<T> value)? isNotDouble,
+    TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
+    TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
+    TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
+  }) {
+    return unitTypeNotFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_IncompatibleLength<T> value)? incompatibleLength,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_SpecialCharacterNotAllowed<T> value)?
+        specialCharacterFound,
+    TResult Function(_Multiline<T> value)? multiline,
+    TResult Function(_InvalidURL<T> value)? invalidURL,
+    TResult Function(_IsNotBool<T> value)? isNotBool,
+    TResult Function(_IsNotDouble<T> value)? isNotDouble,
+    TResult Function(_IsNotPositiveDouble<T> value)? isNotPositiveDouble,
+    TResult Function(_IsNotPositiveInt<T> value)? isNotPositiveInt,
+    TResult Function(CountryCodeNotCovered<T> value)? countryCodeNotCovered,
+    TResult Function(_UnitTypeNotFound<T> value)? unitTypeNotFound,
+    required TResult orElse(),
+  }) {
+    if (unitTypeNotFound != null) {
+      return unitTypeNotFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnitTypeNotFound<T> implements ValueFailure<T> {
+  const factory _UnitTypeNotFound({required T failedValue}) =
+      _$_UnitTypeNotFound<T>;
+
+  T get failedValue;
+  @JsonKey(ignore: true)
+  _$UnitTypeNotFoundCopyWith<T, _UnitTypeNotFound<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
