@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 import '../helpers/show_full_screen_bottom_sheet.dart';
-import '../pages/product_page.dart';
+import '../pages/product.dart';
 
 class ProductListTile extends StatelessWidget {
   const ProductListTile(
@@ -16,8 +16,8 @@ class ProductListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () =>
-          showFullBottomSheet(context, _productPageHeight, const ProductPage()),
+      onTap: () => showFullScreenBottomSheet(
+          context, _productPageHeight, const ProductPage()),
       child: Row(
         children: <Widget>[
           SizedBox(

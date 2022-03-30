@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 
 import '../helpers/show_full_screen_bottom_sheet.dart';
-import '../pages/product_page.dart';
+import '../pages/product.dart';
 
 class NewProductCard extends StatelessWidget {
   const NewProductCard(this._productPageHeight, {Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class NewProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => showFullBottomSheet(
+      onTap: () => showFullScreenBottomSheet(
         context,
         _productPageHeight,
         const ProductPage(),

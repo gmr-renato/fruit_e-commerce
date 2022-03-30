@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
-import '../helpers/calculate_full_screen_bottom_sheet_hight.dart';
+import '../helpers/full_screen_bottom_sheet_hight.dart';
 import '../helpers/show_full_screen_bottom_sheet.dart';
 import '../widgets/new_product_card.dart';
 import '../widgets/product_list_tile.dart';
@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => showFullBottomSheet(
+        onPressed: () => showFullScreenBottomSheet(
           context,
           _bottomSheetHight,
           const ShoppingCartPage(),
