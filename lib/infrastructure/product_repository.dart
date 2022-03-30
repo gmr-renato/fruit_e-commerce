@@ -10,7 +10,7 @@ class ProductRepository {
 
   final FirebaseFirestore _firestore;
 
-  Stream<Either<Failure, List<Either<Failure, Product>>>> watchAllPublic() {
+  Stream<Either<Failure, List<Either<Failure, Product>>>> watchAll() {
     final _eventsCollection =
         _firestore.fruitsCollection().withConverter<Either<Failure, Product>>(
               fromFirestore: productFromFirestore,

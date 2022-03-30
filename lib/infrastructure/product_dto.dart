@@ -15,7 +15,7 @@ class ProductDTO with _$ProductDTO {
   const factory ProductDTO({
     required String uid,
     required int color,
-    required String imageURL,
+    required String imageUrl,
     required Map<String, ProductI18nDetailsDTO> i18n,
   }) = _ProductDTO;
 
@@ -24,7 +24,7 @@ class ProductDTO with _$ProductDTO {
   factory ProductDTO.fromDomain(Product product) => ProductDTO(
         uid: product.uid.getOrCrash(),
         color: product.color.getOrCrash(),
-        imageURL: product.imageURL.getOrCrash(),
+        imageUrl: product.imageUrl.getOrCrash(),
         i18n: product.i18nDetails.map(
           (key, value) => MapEntry(
             key.getOrCrash(),
@@ -39,7 +39,7 @@ class ProductDTO with _$ProductDTO {
   Product toDomain() => Product(
         uid: UniqueID.fromSafeString(uid),
         color: ColorCode(color),
-        imageURL: URL(imageURL),
+        imageUrl: URL(imageUrl),
         i18nDetails: i18n.map(
           (key, value) => MapEntry(
             IsoCountryCode(key),

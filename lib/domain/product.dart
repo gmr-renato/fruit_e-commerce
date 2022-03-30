@@ -9,19 +9,19 @@ class Product {
   Product({
     required this.uid,
     required this.color,
-    required this.imageURL,
+    required this.imageUrl,
     required this.i18nDetails,
   });
 
   final UniqueID uid;
   final ColorCode color;
-  final URL imageURL;
+  final URL imageUrl;
   final Map<IsoCountryCode, ProductI18nDetails> i18nDetails;
 
   Option<ValueFailure<dynamic>> get failureOption => uid.failureOrUnit
-      .andThen(imageURL.failureOrUnit)
+      .andThen(imageUrl.failureOrUnit)
       .andThen(color.failureOrUnit)
-      .andThen(imageURL.failureOrUnit)
+      .andThen(imageUrl.failureOrUnit)
       // TODO write validation to i18nDetails
       .fold((f) => some(f), (r) => none());
 
@@ -30,7 +30,7 @@ class Product {
 
   @override
   String toString() {
-    return 'Product(uid: $uid, color: $color, imageURL: $imageURL, i18nDetails: $i18nDetails)';
+    return 'Product(uid: $uid, color: $color, imageURL: $imageUrl, i18nDetails: $i18nDetails)';
   }
 
   @override
@@ -40,7 +40,7 @@ class Product {
     return other is Product &&
         other.uid == uid &&
         other.color == color &&
-        other.imageURL == imageURL &&
+        other.imageUrl == imageUrl &&
         mapEquals(other.i18nDetails, i18nDetails);
   }
 
@@ -48,7 +48,7 @@ class Product {
   int get hashCode {
     return uid.hashCode ^
         color.hashCode ^
-        imageURL.hashCode ^
+        imageUrl.hashCode ^
         i18nDetails.hashCode;
   }
 }
