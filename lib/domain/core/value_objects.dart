@@ -45,12 +45,12 @@ class IsoCountryCode extends AValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 }
 
-class ColorCode extends AValueObject<String> {
+class ColorCode extends AValueObject<int> {
   // TODO: validate is integer
-  factory ColorCode(String input) => ColorCode._(right(input));
+  factory ColorCode(int input) => ColorCode._(right(input));
 
   const ColorCode._(this.value);
 
   @override
-  final Either<ValueFailure<String>, String> value;
+  final Either<ValueFailure<int>, int> value;
 }
