@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_design_system/fruit_design_system.dart';
 import 'package:get/get.dart';
+
+import 'package:fruit_design_system/fruit_design_system.dart';
+
 import '../../application/ecommerce_products_controller.dart';
 import '../../infrastructure/core/get_initializer.dart';
 import '../../infrastructure/product_repository.dart';
@@ -8,6 +10,7 @@ import '../helpers/full_screen_bottom_sheet_hight.dart';
 import '../helpers/show_full_screen_bottom_sheet.dart';
 import '../widgets/new_product_card.dart';
 import '../widgets/product_list_tile.dart';
+import 'profile.dart';
 import 'shopping_cart.dart';
 
 class HomePage extends StatelessWidget {
@@ -22,10 +25,17 @@ class HomePage extends StatelessWidget {
     );
     return Scaffold(
       extendBodyBehindAppBar: true,
-      drawer: const Drawer(),
       appBar: AppBar(
         title: const Text('Fruits'),
         elevation: 0,
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const ProfilePage(),
+            ),
+          ),
+          icon: const Icon(Icons.person),
+        ),
         actions: [
           IconButton(
             onPressed: () {},

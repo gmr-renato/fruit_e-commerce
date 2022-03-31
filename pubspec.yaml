@@ -32,10 +32,12 @@ dependencies:
   cached_network_image: ^3.2.0
   cloud_firestore: ^3.1.10
   cupertino_icons: ^1.0.2
+  firebase_auth: ^3.3.11
   firebase_core: ^1.13.1
   freezed_annotation: ^1.1.0
   flutter:
     sdk: flutter
+  flutterfire_ui: ^0.3.6+1
   fruit_design_system:
     # The following lines make fruit_design_system available though reference
     # Use "path" reference in development mode so you can follow real time changes in
