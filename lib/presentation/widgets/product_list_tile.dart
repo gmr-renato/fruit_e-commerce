@@ -29,10 +29,13 @@ class ProductListTile extends StatelessWidget {
       child: Row(
         children: <Widget>[
           SizedBox(
-            height: 80,
-            width: 80,
-            child: CachedNetworkImage(
-              imageUrl: product.imageUrl.getOrCrash(),
+            height: 96,
+            width: 96,
+            child: Padding(
+              padding: const EdgeInsets.all(FruitUnit.small),
+              child: CachedNetworkImage(
+                imageUrl: product.imageUrl.getOrCrash(),
+              ),
             ),
           ),
           Expanded(
