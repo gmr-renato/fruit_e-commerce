@@ -54,7 +54,10 @@ class HomePage extends StatelessWidget {
                 itemBuilder: (BuildContext _, int index) {
                   return _controller.products[index].fold(
                     (l) => const Text('Error'),
-                    (r) => NewProductCard(_bottomSheetHight),
+                    (r) => NewProductCard(
+                      r,
+                      productPageHeight: _bottomSheetHight,
+                    ),
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {
@@ -72,9 +75,15 @@ class HomePage extends StatelessWidget {
             ListView.separated(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: 10,
+              itemCount: _controller.products.length,
               itemBuilder: (BuildContext context, int index) {
-                return ProductListTile(_bottomSheetHight);
+                return _controller.products[index].fold(
+                  (l) => const Text('Error'),
+                  (r) => ProductListTile(
+                    r,
+                    productPageHeight: _bottomSheetHight,
+                  ),
+                );
               },
               separatorBuilder: (context, index) {
                 return const FruitBoxSpacer();

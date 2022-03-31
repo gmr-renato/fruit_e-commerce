@@ -1,32 +1,35 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
+import '../../domain/core/value_objects.dart';
+import '../../domain/product.dart';
 import '../../infrastructure/core/get_initializer.dart';
 import '../helpers/show_full_screen_bottom_sheet.dart';
 import '../pages/product.dart';
 
 class ProductListTile extends StatelessWidget {
   const ProductListTile(
-    this._productPageHeight, {
+    this.product, {
     Key? key,
+    required this.productPageHeight,
   }) : super(key: key);
 
-  final double _productPageHeight;
+  final double productPageHeight;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => showFullScreenBottomSheet(
-          context, _productPageHeight, const ProductPage()),
+          context, productPageHeight, const ProductPage()),
       child: Row(
         children: <Widget>[
           SizedBox(
             height: 80,
             width: 80,
             child: CachedNetworkImage(
-              imageUrl:
-                  'https://www.eatme.eu/media/j4bbpwqe/aardbei.png?anchor=center&mode=crop&width=600&height=600&rnd=132629674611530000',
+              imageUrl: product.imageUrl.getOrCrash(),
             ),
           ),
           Expanded(
@@ -37,7 +40,8 @@ class ProductListTile extends StatelessWidget {
                   children: [
                     const FruitBoxSpacer.xSmall(),
                     Text(
-                      'Morango',
+                      product.i18nDetails[IsoCountryCode('BR')]!.name
+                          .getOrCrash(),
                       style: getIt<FruitTheme>().primaryTextTheme.bodyText1,
                     ),
                   ],
@@ -67,7 +71,7 @@ class ProductListTile extends StatelessWidget {
                   children: [
                     const FruitBoxSpacer.xSmall(),
                     Text(
-                      'R\$ 10/kg',
+                      'R\$ ${product.i18nDetails[IsoCountryCode('BR')]!.price.getOrCrash()}/kg',
                       style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
                     ),
                   ],

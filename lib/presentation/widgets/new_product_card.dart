@@ -2,26 +2,35 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 
+import '../../domain/core/value_objects.dart';
+import '../../domain/product.dart';
 import '../../infrastructure/core/get_initializer.dart';
 import '../helpers/show_full_screen_bottom_sheet.dart';
 import '../pages/product.dart';
 
 class NewProductCard extends StatelessWidget {
-  const NewProductCard(this._productPageHeight, {Key? key}) : super(key: key);
+  const NewProductCard(
+    this.product, {
+    Key? key,
+    required this.productPageHeight,
+  }) : super(key: key);
 
-  final double _productPageHeight;
+  final double productPageHeight;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => showFullScreenBottomSheet(
         context,
-        _productPageHeight,
+        productPageHeight,
         const ProductPage(),
       ),
       child: Material(
         borderRadius: BorderRadius.circular(FruitUnit.large),
-        color: const Color(0xFFFBD1C7),
+        color: Color(int.parse(
+          '0xFF' + product.color.getOrCrash().toRadixString(16),
+        )),
         child: SizedBox(
           width: 150,
           child: Padding(
@@ -31,7 +40,8 @@ class NewProductCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Morango',
+                      product.i18nDetails[IsoCountryCode('BR')]!.name
+                          .getOrCrash(),
                       style: getIt<FruitTheme>().primaryTextTheme.bodyText1,
                     ),
                   ],
@@ -39,15 +49,15 @@ class NewProductCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'R\$ 10/kg',
+                      // FORMAT STRING
+                      'R\$ ${product.i18nDetails[IsoCountryCode('BR')]!.price.getOrCrash()}/kg',
                       style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
                     ),
                   ],
                 ),
                 Expanded(
                   child: CachedNetworkImage(
-                    imageUrl:
-                        'https://www.eatme.eu/media/j4bbpwqe/aardbei.png?anchor=center&mode=crop&width=600&height=600&rnd=132629674611530000',
+                    imageUrl: product.imageUrl.getOrCrash(),
                   ),
                 ),
               ],
