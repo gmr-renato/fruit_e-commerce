@@ -24,7 +24,7 @@ class NewProductCard extends StatelessWidget {
       onTap: () => showFullScreenBottomSheet(
         context,
         productPageHeight,
-        const ProductPage(),
+        ProductPage(product: product),
       ),
       child: Material(
         borderRadius: BorderRadius.circular(FruitUnit.large),
@@ -48,10 +48,12 @@ class NewProductCard extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text(
-                      // FORMAT STRING
-                      'R\$ ${product.i18nDetails[IsoCountryCode('BR')]!.price.getOrCrash()}/kg',
-                      style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
+                    Expanded(
+                      child: Text(
+                        // FORMAT STRING
+                        'R\$ ${product.i18nDetails[IsoCountryCode('BR')]!.price.getOrCrash()}/${product.i18nDetails[IsoCountryCode('BR')]!.unit.getOrCrash()}',
+                        style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
+                      ),
                     ),
                   ],
                 ),

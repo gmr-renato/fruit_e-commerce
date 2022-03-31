@@ -22,7 +22,10 @@ class ProductListTile extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => showFullScreenBottomSheet(
-          context, productPageHeight, const ProductPage()),
+        context,
+        productPageHeight,
+        ProductPage(product: product),
+      ),
       child: Row(
         children: <Widget>[
           SizedBox(

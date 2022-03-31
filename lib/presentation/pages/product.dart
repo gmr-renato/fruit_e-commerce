@@ -2,10 +2,17 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 
+import '../../domain/core/value_objects.dart';
+import '../../domain/product.dart';
 import '../../infrastructure/core/get_initializer.dart';
 
 class ProductPage extends StatelessWidget {
-  const ProductPage({Key? key}) : super(key: key);
+  const ProductPage({
+    Key? key,
+    required this.product,
+  }) : super(key: key);
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +31,19 @@ class ProductPage extends StatelessWidget {
                       child: CloseButton(),
                     ),
                     Expanded(
-                      child: SizedBox(
-                        height: 200,
-                        width: 200,
-                        child: CachedNetworkImage(
-                          imageUrl:
-                              'https://www.eatme.eu/media/j4bbpwqe/aardbei.png?anchor=center&mode=crop&width=600&height=600&rnd=132629674611530000',
-                        ),
+                      child: Column(
+                        children: [
+                          const FruitBoxSpacer(),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: CachedNetworkImage(
+                                  imageUrl: product.imageUrl.getOrCrash(),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                     Padding(
@@ -59,7 +72,8 @@ class ProductPage extends StatelessWidget {
                           FruitUnit.medium,
                         ),
                         child: Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                          product.i18nDetails[IsoCountryCode('BR')]!.description
+                              .getOrCrash(),
                           style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
                         ),
                       ),
@@ -85,7 +99,8 @@ class ProductPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Morango',
+                          product.i18nDetails[IsoCountryCode('BR')]!.name
+                              .getOrCrash(),
                           style:
                               getIt<FruitTheme>().secondaryTextTheme.headline6,
                         ),
@@ -115,7 +130,7 @@ class ProductPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(FruitUnit.medium),
                           child: Text(
-                            '500 g',
+                            '${product.i18nDetails[IsoCountryCode('BR')]!.interval.getOrCrash()} ${product.i18nDetails[IsoCountryCode('BR')]!.unit.getOrCrash()}',
                             style: getIt<FruitTheme>()
                                 .secondaryTextTheme
                                 .bodyText1,
@@ -144,7 +159,7 @@ class ProductPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Total: R\$ 20,00',
+                          'Total: R\$ ${product.i18nDetails[IsoCountryCode('BR')]!.price.getOrCrash()}',
                           style:
                               getIt<FruitTheme>().secondaryTextTheme.headline6,
                         ),
