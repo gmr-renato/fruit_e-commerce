@@ -21,7 +21,7 @@ class ProductListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _localizedDetails =
-        product.i18nDetails[IsoCountryCode.fromString('BR')]!;
+        product.i18nDetails[IsoCountryCode.fromString('US')]!;
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => showFullScreenBottomSheet(

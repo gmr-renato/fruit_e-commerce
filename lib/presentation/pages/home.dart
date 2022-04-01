@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(FruitUnit.medium),
               child: Text(
-                'Aproveite nossas novidades!',
+                'Check out the new fruits!',
                 style: getIt<FruitTheme>().themeData.textTheme.headline5,
               ),
             ),
@@ -80,7 +80,15 @@ class HomePage extends StatelessWidget {
                           ))
                       .toList()[index]
                       .fold(
-                        (l) => const Text('Error'),
+                        (l) => const SizedBox(
+                          width: 150,
+                          child: Padding(
+                            padding: EdgeInsets.all(FruitUnit.medium),
+                            child: Center(
+                              child: Text('Error'),
+                            ),
+                          ),
+                        ),
                         (r) => NewProductCard(
                           r,
                           productPageHeight: _bottomSheetHight,
@@ -95,7 +103,7 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(FruitUnit.medium),
               child: Text(
-                'Todas as frutas',
+                'All fruits',
                 style: getIt<FruitTheme>().themeData.textTheme.headline5,
               ),
             ),
@@ -140,7 +148,7 @@ class HomePage extends StatelessWidget {
         ),
         label: Row(
           children: [
-            const Text('Sacola'),
+            const Text('Shopping cart'),
             const FruitBoxSpacer.small(),
             Column(
               children: const [

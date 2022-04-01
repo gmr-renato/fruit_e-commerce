@@ -648,6 +648,14 @@ class _$ShoppingCartStateTearOff {
     return const _HasProduct();
   }
 
+  _AddingProduct addingProduct() {
+    return const _AddingProduct();
+  }
+
+  _RemovingProduct removingProduct() {
+    return const _RemovingProduct();
+  }
+
   _CreatingOrder creatingOrder() {
     return const _CreatingOrder();
   }
@@ -672,6 +680,8 @@ mixin _$ShoppingCartState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() hasProduct,
+    required TResult Function() addingProduct,
+    required TResult Function() removingProduct,
     required TResult Function() creatingOrder,
     required TResult Function(Failure<dynamic> faiure) orderCreationFailed,
     required TResult Function() orderCreationSuccedded,
@@ -681,6 +691,8 @@ mixin _$ShoppingCartState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
     TResult Function()? creatingOrder,
     TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
     TResult Function()? orderCreationSuccedded,
@@ -690,6 +702,8 @@ mixin _$ShoppingCartState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
     TResult Function()? creatingOrder,
     TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
     TResult Function()? orderCreationSuccedded,
@@ -700,6 +714,8 @@ mixin _$ShoppingCartState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_HasProduct value) hasProduct,
+    required TResult Function(_AddingProduct value) addingProduct,
+    required TResult Function(_RemovingProduct value) removingProduct,
     required TResult Function(_CreatingOrder value) creatingOrder,
     required TResult Function(_OrderCreationFailed value) orderCreationFailed,
     required TResult Function(_OrderCreationSuccedded value)
@@ -710,6 +726,8 @@ mixin _$ShoppingCartState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
     TResult Function(_CreatingOrder value)? creatingOrder,
     TResult Function(_OrderCreationFailed value)? orderCreationFailed,
     TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
@@ -719,6 +737,8 @@ mixin _$ShoppingCartState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
     TResult Function(_CreatingOrder value)? creatingOrder,
     TResult Function(_OrderCreationFailed value)? orderCreationFailed,
     TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
@@ -784,6 +804,8 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() hasProduct,
+    required TResult Function() addingProduct,
+    required TResult Function() removingProduct,
     required TResult Function() creatingOrder,
     required TResult Function(Failure<dynamic> faiure) orderCreationFailed,
     required TResult Function() orderCreationSuccedded,
@@ -796,6 +818,8 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
     TResult Function()? creatingOrder,
     TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
     TResult Function()? orderCreationSuccedded,
@@ -808,6 +832,8 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
     TResult Function()? creatingOrder,
     TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
     TResult Function()? orderCreationSuccedded,
@@ -824,6 +850,8 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_HasProduct value) hasProduct,
+    required TResult Function(_AddingProduct value) addingProduct,
+    required TResult Function(_RemovingProduct value) removingProduct,
     required TResult Function(_CreatingOrder value) creatingOrder,
     required TResult Function(_OrderCreationFailed value) orderCreationFailed,
     required TResult Function(_OrderCreationSuccedded value)
@@ -837,6 +865,8 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
     TResult Function(_CreatingOrder value)? creatingOrder,
     TResult Function(_OrderCreationFailed value)? orderCreationFailed,
     TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
@@ -849,6 +879,8 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
     TResult Function(_CreatingOrder value)? creatingOrder,
     TResult Function(_OrderCreationFailed value)? orderCreationFailed,
     TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
@@ -908,6 +940,8 @@ class _$_HasProduct implements _HasProduct {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() hasProduct,
+    required TResult Function() addingProduct,
+    required TResult Function() removingProduct,
     required TResult Function() creatingOrder,
     required TResult Function(Failure<dynamic> faiure) orderCreationFailed,
     required TResult Function() orderCreationSuccedded,
@@ -920,6 +954,8 @@ class _$_HasProduct implements _HasProduct {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
     TResult Function()? creatingOrder,
     TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
     TResult Function()? orderCreationSuccedded,
@@ -932,6 +968,8 @@ class _$_HasProduct implements _HasProduct {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
     TResult Function()? creatingOrder,
     TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
     TResult Function()? orderCreationSuccedded,
@@ -948,6 +986,8 @@ class _$_HasProduct implements _HasProduct {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_HasProduct value) hasProduct,
+    required TResult Function(_AddingProduct value) addingProduct,
+    required TResult Function(_RemovingProduct value) removingProduct,
     required TResult Function(_CreatingOrder value) creatingOrder,
     required TResult Function(_OrderCreationFailed value) orderCreationFailed,
     required TResult Function(_OrderCreationSuccedded value)
@@ -961,6 +1001,8 @@ class _$_HasProduct implements _HasProduct {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
     TResult Function(_CreatingOrder value)? creatingOrder,
     TResult Function(_OrderCreationFailed value)? orderCreationFailed,
     TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
@@ -973,6 +1015,8 @@ class _$_HasProduct implements _HasProduct {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
     TResult Function(_CreatingOrder value)? creatingOrder,
     TResult Function(_OrderCreationFailed value)? orderCreationFailed,
     TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
@@ -987,6 +1031,278 @@ class _$_HasProduct implements _HasProduct {
 
 abstract class _HasProduct implements ShoppingCartState {
   const factory _HasProduct() = _$_HasProduct;
+}
+
+/// @nodoc
+abstract class _$AddingProductCopyWith<$Res> {
+  factory _$AddingProductCopyWith(
+          _AddingProduct value, $Res Function(_AddingProduct) then) =
+      __$AddingProductCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$AddingProductCopyWithImpl<$Res>
+    extends _$ShoppingCartStateCopyWithImpl<$Res>
+    implements _$AddingProductCopyWith<$Res> {
+  __$AddingProductCopyWithImpl(
+      _AddingProduct _value, $Res Function(_AddingProduct) _then)
+      : super(_value, (v) => _then(v as _AddingProduct));
+
+  @override
+  _AddingProduct get _value => super._value as _AddingProduct;
+}
+
+/// @nodoc
+
+class _$_AddingProduct implements _AddingProduct {
+  const _$_AddingProduct();
+
+  @override
+  String toString() {
+    return 'ShoppingCartState.addingProduct()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _AddingProduct);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() hasProduct,
+    required TResult Function() addingProduct,
+    required TResult Function() removingProduct,
+    required TResult Function() creatingOrder,
+    required TResult Function(Failure<dynamic> faiure) orderCreationFailed,
+    required TResult Function() orderCreationSuccedded,
+  }) {
+    return addingProduct();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
+    TResult Function()? creatingOrder,
+    TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
+    TResult Function()? orderCreationSuccedded,
+  }) {
+    return addingProduct?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
+    TResult Function()? creatingOrder,
+    TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
+    TResult Function()? orderCreationSuccedded,
+    required TResult orElse(),
+  }) {
+    if (addingProduct != null) {
+      return addingProduct();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_HasProduct value) hasProduct,
+    required TResult Function(_AddingProduct value) addingProduct,
+    required TResult Function(_RemovingProduct value) removingProduct,
+    required TResult Function(_CreatingOrder value) creatingOrder,
+    required TResult Function(_OrderCreationFailed value) orderCreationFailed,
+    required TResult Function(_OrderCreationSuccedded value)
+        orderCreationSuccedded,
+  }) {
+    return addingProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
+    TResult Function(_CreatingOrder value)? creatingOrder,
+    TResult Function(_OrderCreationFailed value)? orderCreationFailed,
+    TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
+  }) {
+    return addingProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
+    TResult Function(_CreatingOrder value)? creatingOrder,
+    TResult Function(_OrderCreationFailed value)? orderCreationFailed,
+    TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
+    required TResult orElse(),
+  }) {
+    if (addingProduct != null) {
+      return addingProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddingProduct implements ShoppingCartState {
+  const factory _AddingProduct() = _$_AddingProduct;
+}
+
+/// @nodoc
+abstract class _$RemovingProductCopyWith<$Res> {
+  factory _$RemovingProductCopyWith(
+          _RemovingProduct value, $Res Function(_RemovingProduct) then) =
+      __$RemovingProductCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$RemovingProductCopyWithImpl<$Res>
+    extends _$ShoppingCartStateCopyWithImpl<$Res>
+    implements _$RemovingProductCopyWith<$Res> {
+  __$RemovingProductCopyWithImpl(
+      _RemovingProduct _value, $Res Function(_RemovingProduct) _then)
+      : super(_value, (v) => _then(v as _RemovingProduct));
+
+  @override
+  _RemovingProduct get _value => super._value as _RemovingProduct;
+}
+
+/// @nodoc
+
+class _$_RemovingProduct implements _RemovingProduct {
+  const _$_RemovingProduct();
+
+  @override
+  String toString() {
+    return 'ShoppingCartState.removingProduct()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _RemovingProduct);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() hasProduct,
+    required TResult Function() addingProduct,
+    required TResult Function() removingProduct,
+    required TResult Function() creatingOrder,
+    required TResult Function(Failure<dynamic> faiure) orderCreationFailed,
+    required TResult Function() orderCreationSuccedded,
+  }) {
+    return removingProduct();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
+    TResult Function()? creatingOrder,
+    TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
+    TResult Function()? orderCreationSuccedded,
+  }) {
+    return removingProduct?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
+    TResult Function()? creatingOrder,
+    TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
+    TResult Function()? orderCreationSuccedded,
+    required TResult orElse(),
+  }) {
+    if (removingProduct != null) {
+      return removingProduct();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_HasProduct value) hasProduct,
+    required TResult Function(_AddingProduct value) addingProduct,
+    required TResult Function(_RemovingProduct value) removingProduct,
+    required TResult Function(_CreatingOrder value) creatingOrder,
+    required TResult Function(_OrderCreationFailed value) orderCreationFailed,
+    required TResult Function(_OrderCreationSuccedded value)
+        orderCreationSuccedded,
+  }) {
+    return removingProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
+    TResult Function(_CreatingOrder value)? creatingOrder,
+    TResult Function(_OrderCreationFailed value)? orderCreationFailed,
+    TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
+  }) {
+    return removingProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
+    TResult Function(_CreatingOrder value)? creatingOrder,
+    TResult Function(_OrderCreationFailed value)? orderCreationFailed,
+    TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
+    required TResult orElse(),
+  }) {
+    if (removingProduct != null) {
+      return removingProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemovingProduct implements ShoppingCartState {
+  const factory _RemovingProduct() = _$_RemovingProduct;
 }
 
 /// @nodoc
@@ -1032,6 +1348,8 @@ class _$_CreatingOrder implements _CreatingOrder {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() hasProduct,
+    required TResult Function() addingProduct,
+    required TResult Function() removingProduct,
     required TResult Function() creatingOrder,
     required TResult Function(Failure<dynamic> faiure) orderCreationFailed,
     required TResult Function() orderCreationSuccedded,
@@ -1044,6 +1362,8 @@ class _$_CreatingOrder implements _CreatingOrder {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
     TResult Function()? creatingOrder,
     TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
     TResult Function()? orderCreationSuccedded,
@@ -1056,6 +1376,8 @@ class _$_CreatingOrder implements _CreatingOrder {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
     TResult Function()? creatingOrder,
     TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
     TResult Function()? orderCreationSuccedded,
@@ -1072,6 +1394,8 @@ class _$_CreatingOrder implements _CreatingOrder {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_HasProduct value) hasProduct,
+    required TResult Function(_AddingProduct value) addingProduct,
+    required TResult Function(_RemovingProduct value) removingProduct,
     required TResult Function(_CreatingOrder value) creatingOrder,
     required TResult Function(_OrderCreationFailed value) orderCreationFailed,
     required TResult Function(_OrderCreationSuccedded value)
@@ -1085,6 +1409,8 @@ class _$_CreatingOrder implements _CreatingOrder {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
     TResult Function(_CreatingOrder value)? creatingOrder,
     TResult Function(_OrderCreationFailed value)? orderCreationFailed,
     TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
@@ -1097,6 +1423,8 @@ class _$_CreatingOrder implements _CreatingOrder {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
     TResult Function(_CreatingOrder value)? creatingOrder,
     TResult Function(_OrderCreationFailed value)? orderCreationFailed,
     TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
@@ -1190,6 +1518,8 @@ class _$_OrderCreationFailed implements _OrderCreationFailed {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() hasProduct,
+    required TResult Function() addingProduct,
+    required TResult Function() removingProduct,
     required TResult Function() creatingOrder,
     required TResult Function(Failure<dynamic> faiure) orderCreationFailed,
     required TResult Function() orderCreationSuccedded,
@@ -1202,6 +1532,8 @@ class _$_OrderCreationFailed implements _OrderCreationFailed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
     TResult Function()? creatingOrder,
     TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
     TResult Function()? orderCreationSuccedded,
@@ -1214,6 +1546,8 @@ class _$_OrderCreationFailed implements _OrderCreationFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
     TResult Function()? creatingOrder,
     TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
     TResult Function()? orderCreationSuccedded,
@@ -1230,6 +1564,8 @@ class _$_OrderCreationFailed implements _OrderCreationFailed {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_HasProduct value) hasProduct,
+    required TResult Function(_AddingProduct value) addingProduct,
+    required TResult Function(_RemovingProduct value) removingProduct,
     required TResult Function(_CreatingOrder value) creatingOrder,
     required TResult Function(_OrderCreationFailed value) orderCreationFailed,
     required TResult Function(_OrderCreationSuccedded value)
@@ -1243,6 +1579,8 @@ class _$_OrderCreationFailed implements _OrderCreationFailed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
     TResult Function(_CreatingOrder value)? creatingOrder,
     TResult Function(_OrderCreationFailed value)? orderCreationFailed,
     TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
@@ -1255,6 +1593,8 @@ class _$_OrderCreationFailed implements _OrderCreationFailed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
     TResult Function(_CreatingOrder value)? creatingOrder,
     TResult Function(_OrderCreationFailed value)? orderCreationFailed,
     TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
@@ -1320,6 +1660,8 @@ class _$_OrderCreationSuccedded implements _OrderCreationSuccedded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() hasProduct,
+    required TResult Function() addingProduct,
+    required TResult Function() removingProduct,
     required TResult Function() creatingOrder,
     required TResult Function(Failure<dynamic> faiure) orderCreationFailed,
     required TResult Function() orderCreationSuccedded,
@@ -1332,6 +1674,8 @@ class _$_OrderCreationSuccedded implements _OrderCreationSuccedded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
     TResult Function()? creatingOrder,
     TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
     TResult Function()? orderCreationSuccedded,
@@ -1344,6 +1688,8 @@ class _$_OrderCreationSuccedded implements _OrderCreationSuccedded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? hasProduct,
+    TResult Function()? addingProduct,
+    TResult Function()? removingProduct,
     TResult Function()? creatingOrder,
     TResult Function(Failure<dynamic> faiure)? orderCreationFailed,
     TResult Function()? orderCreationSuccedded,
@@ -1360,6 +1706,8 @@ class _$_OrderCreationSuccedded implements _OrderCreationSuccedded {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_HasProduct value) hasProduct,
+    required TResult Function(_AddingProduct value) addingProduct,
+    required TResult Function(_RemovingProduct value) removingProduct,
     required TResult Function(_CreatingOrder value) creatingOrder,
     required TResult Function(_OrderCreationFailed value) orderCreationFailed,
     required TResult Function(_OrderCreationSuccedded value)
@@ -1373,6 +1721,8 @@ class _$_OrderCreationSuccedded implements _OrderCreationSuccedded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
     TResult Function(_CreatingOrder value)? creatingOrder,
     TResult Function(_OrderCreationFailed value)? orderCreationFailed,
     TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,
@@ -1385,6 +1735,8 @@ class _$_OrderCreationSuccedded implements _OrderCreationSuccedded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_HasProduct value)? hasProduct,
+    TResult Function(_AddingProduct value)? addingProduct,
+    TResult Function(_RemovingProduct value)? removingProduct,
     TResult Function(_CreatingOrder value)? creatingOrder,
     TResult Function(_OrderCreationFailed value)? orderCreationFailed,
     TResult Function(_OrderCreationSuccedded value)? orderCreationSuccedded,

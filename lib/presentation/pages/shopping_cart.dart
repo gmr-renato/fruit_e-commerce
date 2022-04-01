@@ -33,7 +33,7 @@ class ShoppingCartPage extends StatelessWidget {
                       Expanded(
                         child: Center(
                           child: Text(
-                            'Sacola',
+                            'Shopping cart',
                             style:
                                 getIt<FruitTheme>().primaryTextTheme.headline5,
                           ),
@@ -60,7 +60,7 @@ class ShoppingCartPage extends StatelessWidget {
                       builder: (_, state) {
                         return state.map(
                           initial: (initial) => const Center(
-                            child: Text('Sua sacola está vazia'),
+                            child: Text('Your cart is empty'),
                           ),
                           hasProduct: (hasProduct) => Scrollbar(
                             isAlwaysShown: true,
@@ -84,16 +84,18 @@ class ShoppingCartPage extends StatelessWidget {
                               },
                             ),
                           ),
+                          removingProduct: (_) => const SizedBox(),
+                          addingProduct: (_) => const SizedBox(),
                           creatingOrder: (creatingOrder) => const Center(
                             child: CircularProgressIndicator(),
                           ),
                           orderCreationFailed: (orderCreationFailed) =>
                               const Center(
-                            child: Text('Erro ao criar pedido'),
+                            child: Text('Failure creating the order'),
                           ),
                           orderCreationSuccedded: (orderCreationSuccedded) =>
                               const Center(
-                            child: Text('Pedido criado com sucesso'),
+                            child: Text('Order successfully created'),
                           ),
                         );
                       },
@@ -135,7 +137,7 @@ class ShoppingCartPage extends StatelessWidget {
                                   );
                                 },
                                 orElse: () => Text(
-                                  'Sacola vazia',
+                                  'Your cart is empty',
                                   style: getIt<FruitTheme>()
                                       .secondaryTextTheme
                                       .bodyText1,
@@ -163,8 +165,7 @@ class ShoppingCartPage extends StatelessWidget {
                                 context,
                                 state,
                               ) {
-                                const _text =
-                                    Text('Finalizar compra (checkout)');
+                                const _text = Text('Finish order (checkout)');
 
                                 return state.maybeMap(
                                   initial: (initial) => const ElevatedButton(

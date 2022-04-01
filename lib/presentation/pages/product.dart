@@ -82,7 +82,7 @@ class ProductPage extends StatelessWidget {
                           FruitUnit.medium,
                         ),
                         child: Text(
-                          product.i18nDetails[IsoCountryCode.fromString('BR')]!
+                          product.i18nDetails[IsoCountryCode.fromString('US')]!
                               .description
                               .getOrCrash(),
                           style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
@@ -116,7 +116,7 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
   @override
   Widget build(BuildContext context) {
     final _localizedDetails =
-        widget.product.i18nDetails[IsoCountryCode.fromString('BR')]!;
+        widget.product.i18nDetails[IsoCountryCode.fromString('US')]!;
 
     return Material(
       shape: const RoundedRectangleBorder(
@@ -216,7 +216,7 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                           _quantity),
                       widget
                           .product
-                          .i18nDetails[IsoCountryCode.fromString('BR')]!
+                          .i18nDetails[IsoCountryCode.fromString('US')]!
                           .currency,
                     ),
                     style: getIt<FruitTheme>().secondaryTextTheme.headline6,
@@ -260,7 +260,7 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                           ),
                         );
                       },
-                      child: const Text('Adicionar à sacola'),
+                      child: const Text('Add to cart'),
                     ),
                   ),
                 ),

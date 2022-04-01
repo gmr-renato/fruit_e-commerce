@@ -20,6 +20,7 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
           emit(const ShoppingCartState.hasProduct());
         },
         removeProduct: (removeProduct) {
+          emit(const ShoppingCartState.removingProduct());
           products.removeAt(removeProduct.index);
           if (products.isNotEmpty) {
             emit(const ShoppingCartState.hasProduct());

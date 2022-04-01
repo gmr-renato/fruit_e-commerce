@@ -22,7 +22,7 @@ class NewProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _localizedDetails =
-        product.i18nDetails[IsoCountryCode.fromString('BR')]!;
+        product.i18nDetails[IsoCountryCode.fromString('US')]!;
     return GestureDetector(
       onTap: () => showFullScreenBottomSheet(
         context,
