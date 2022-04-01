@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
+import 'shopping_cart.dart';
 
 import '../../application/bloc/shopping_cart_bloc.dart';
 import '../../domain/core/value_objects.dart';
@@ -103,7 +104,6 @@ class _QuantityAndValue extends StatefulWidget {
 
 class _QuantityAndValueState extends State<_QuantityAndValue> {
   int _quantity = 1;
-  final _shoppingCartBloc = getIt<ShoppingCartBloc>();
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +158,7 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                   child: Padding(
                     padding: const EdgeInsets.all(FruitUnit.medium),
                     child: Text(
-                      '${(widget.product.i18nDetails[IsoCountryCode('BR')]!.interval.getOrCrash() * _quantity).roundToDouble()}  ${widget.product.i18nDetails[IsoCountryCode('BR')]!.unit.getOrCrash()}',
+                      '${(widget.product.i18nDetails[IsoCountryCode('BR')]!.interval.getOrCrash() * _quantity).toStringAsFixed(1)}  ${widget.product.i18nDetails[IsoCountryCode('BR')]!.unit.getOrCrash()}',
                       style: getIt<FruitTheme>().secondaryTextTheme.bodyText1,
                     ),
                   ),
@@ -190,7 +190,7 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Total: R\$ ${widget.product.i18nDetails[IsoCountryCode('BR')]!.price.getOrCrash() * _quantity}',
+                    'Total: R\$ ${(widget.product.i18nDetails[IsoCountryCode('BR')]!.price.getOrCrash() * widget.product.i18nDetails[IsoCountryCode('BR')]!.interval.getOrCrash() * _quantity).toStringAsFixed(2)}',
                     style: getIt<FruitTheme>().secondaryTextTheme.headline6,
                   ),
                 ],
@@ -208,30 +208,38 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                       0,
                     ),
                     child: ElevatedButton(
-                      onPressed: () => _shoppingCartBloc.add(
-                        ShoppingCartEvent.addProduct(
-                          ShoppingCartProduct(
-                            uid: widget.product.uid,
-                            imageUrl: widget.product.imageUrl,
-                            name: widget.product
-                                .i18nDetails[IsoCountryCode('BR')]!.name,
-                            paidPrice: widget.product
-                                .i18nDetails[IsoCountryCode('BR')]!.price,
-                            currency: widget.product
-                                .i18nDetails[IsoCountryCode('BR')]!.currency,
-                            unit: widget.product
-                                .i18nDetails[IsoCountryCode('BR')]!.unit,
-                            quantity: ItemQuantity(
-                              _quantity *
-                                  widget
-                                      .product
-                                      .i18nDetails[IsoCountryCode('BR')]!
-                                      .interval
-                                      .getOrCrash(),
+                      onPressed: () {
+                        getIt<ShoppingCartBloc>().add(
+                          ShoppingCartEvent.addProduct(
+                            ShoppingCartProduct(
+                              uid: widget.product.uid,
+                              imageUrl: widget.product.imageUrl,
+                              name: widget.product
+                                  .i18nDetails[IsoCountryCode('BR')]!.name,
+                              paidPrice: widget.product
+                                  .i18nDetails[IsoCountryCode('BR')]!.price,
+                              currency: widget.product
+                                  .i18nDetails[IsoCountryCode('BR')]!.currency,
+                              unit: widget.product
+                                  .i18nDetails[IsoCountryCode('BR')]!.unit,
+                              quantity: ItemQuantity(
+                                _quantity *
+                                    widget
+                                        .product
+                                        .i18nDetails[IsoCountryCode('BR')]!
+                                        .interval
+                                        .getOrCrash(),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
+                        );
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            fullscreenDialog: true,
+                            builder: (context) => const ShoppingCartPage(),
+                          ),
+                        );
+                      },
                       child: const Text('Adicionar à sacola'),
                     ),
                   ),

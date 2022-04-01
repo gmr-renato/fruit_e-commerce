@@ -1,68 +1,85 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 
+import '../../application/bloc/shopping_cart_bloc.dart';
+import '../../domain/shopping_cart_product.dart';
 import '../../infrastructure/core/get_initializer.dart';
 
 class ProductShoppingCartTile extends StatelessWidget {
-  const ProductShoppingCartTile({
+  const ProductShoppingCartTile(
+    this.shoppingCartProduct, {
     Key? key,
+    required this.index,
+    required this.onTap,
   }) : super(key: key);
+
+  final ShoppingCartProduct shoppingCartProduct;
+  final int index;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: () {},
-      child: Row(
-        children: <Widget>[
-          SizedBox(
-            height: 80,
-            width: 80,
-            child: CachedNetworkImage(
-              imageUrl:
-                  'https://www.eatme.eu/media/j4bbpwqe/aardbei.png?anchor=center&mode=crop&width=600&height=600&rnd=132629674611530000',
-            ),
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  children: [
-                    const FruitBoxSpacer.xSmall(),
-                    Text(
-                      'Morango',
-                      style: getIt<FruitTheme>().primaryTextTheme.bodyText1,
-                    ),
-                  ],
+    return BlocBuilder<ShoppingCartBloc, ShoppingCartState>(
+      bloc: getIt<ShoppingCartBloc>(),
+      builder: (context, state) {
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: onTap,
+          child: Row(
+            children: <Widget>[
+              SizedBox(
+                height: 80,
+                width: 80,
+                child: Padding(
+                  padding: const EdgeInsets.all(FruitUnit.medium),
+                  child: CachedNetworkImage(
+                    imageUrl: shoppingCartProduct.imageUrl.getOrCrash(),
+                  ),
                 ),
-                Row(
-                  children: [
-                    const FruitBoxSpacer.xSmall(),
-                    Text(
-                      '2kg - R\$ 20,00',
-                      style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Material(
-            color: getIt<FruitTheme>().colorScheme.primary,
-            borderRadius: BorderRadius.circular(FruitUnit.xxxLarge),
-            child: Padding(
-              padding: const EdgeInsets.all(FruitUnit.small),
-              child: Icon(
-                Icons.remove,
-                color: getIt<FruitTheme>().colorScheme.onPrimary,
               ),
-            ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Row(
+                      children: [
+                        const FruitBoxSpacer.xSmall(),
+                        Text(
+                          shoppingCartProduct.name.getOrCrash(),
+                          style: getIt<FruitTheme>().primaryTextTheme.bodyText1,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const FruitBoxSpacer.xSmall(),
+                        Text(
+                          '${shoppingCartProduct.paidPrice.getOrCrash() * shoppingCartProduct.quantity.getOrCrash()} - R\$ 20,00',
+                          style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Material(
+                color: getIt<FruitTheme>().colorScheme.primary,
+                borderRadius: BorderRadius.circular(FruitUnit.xxxLarge),
+                child: Padding(
+                  padding: const EdgeInsets.all(FruitUnit.small),
+                  child: Icon(
+                    Icons.remove,
+                    color: getIt<FruitTheme>().colorScheme.onPrimary,
+                  ),
+                ),
+              ),
+              const FruitBoxSpacer(),
+            ],
           ),
-          const FruitBoxSpacer(),
-        ],
-      ),
+        );
+      },
     );
   }
 }

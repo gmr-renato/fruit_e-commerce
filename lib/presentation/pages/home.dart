@@ -7,7 +7,6 @@ import '../../application/ecommerce_products_controller.dart';
 import '../../infrastructure/core/get_initializer.dart';
 import '../../infrastructure/product_repository.dart';
 import '../helpers/full_screen_bottom_sheet_hight.dart';
-import '../helpers/show_full_screen_bottom_sheet.dart';
 import '../widgets/new_product_card.dart';
 import '../widgets/product_list_tile.dart';
 import 'profile.dart';
@@ -110,10 +109,11 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => showFullScreenBottomSheet(
-          context,
-          _bottomSheetHight,
-          const ShoppingCartPage(),
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            fullscreenDialog: true,
+            builder: (context) => const ShoppingCartPage(),
+          ),
         ),
         label: Row(
           children: [

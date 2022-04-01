@@ -11,19 +11,27 @@ part 'shopping_cart_bloc.freezed.dart';
 class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
   final List<ShoppingCartProduct> products = [];
 
-  ShoppingCartBloc() : super(const _Initial()) {
+  ShoppingCartBloc() : super(const ShoppingCartState.initial()) {
     on<ShoppingCartEvent>((event, emit) {
       event.map(
-        started: (started) => emit(const _Initial()),
+        started: (started) => emit(const ShoppingCartState.initial()),
         addProduct: (addProduct) {
           products.add(addProduct.product);
-          emit(const _Initial());
+          emit(const ShoppingCartState.hasProduct());
         },
         removeProduct: (removeProduct) {
           products.removeAt(removeProduct.index);
-          emit(const _Initial());
+          if (products.isNotEmpty) {
+            emit(const ShoppingCartState.hasProduct());
+          } else {
+            emit(const ShoppingCartState.initial());
+          }
         },
-        createOrder: (createOrder) => emit(const _Initial()),
+        createOrder: (createOrder) {
+          emit(
+            const ShoppingCartState.orderCreationSuccedded(),
+          );
+        },
       );
     });
   }
