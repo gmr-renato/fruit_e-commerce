@@ -41,8 +41,14 @@ class ProductPage extends StatelessWidget {
                           Row(
                             children: [
                               Expanded(
-                                child: CachedNetworkImage(
-                                  imageUrl: product.imageUrl.getOrCrash(),
+                                child: ConstrainedBox(
+                                  constraints: BoxConstraints(
+                                      maxHeight:
+                                          MediaQuery.of(context).size.height /
+                                              3),
+                                  child: CachedNetworkImage(
+                                    imageUrl: product.imageUrl.getOrCrash(),
+                                  ),
                                 ),
                               ),
                             ],
@@ -161,12 +167,19 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                   borderRadius: BorderRadius.circular(FruitUnit.small),
                   child: Padding(
                     padding: const EdgeInsets.all(FruitUnit.medium),
-                    child: Text(
-                      unitFormatterWithSymbol(
-                        _localizedDetails.interval.getOrCrash() * _quantity,
-                        _localizedDetails.unit,
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                          minWidth: MediaQuery.of(context).size.width / 4),
+                      child: Center(
+                        child: Text(
+                          unitFormatterWithSymbol(
+                            _localizedDetails.interval.getOrCrash() * _quantity,
+                            _localizedDetails.unit,
+                          ),
+                          style:
+                              getIt<FruitTheme>().secondaryTextTheme.bodyText1,
+                        ),
                       ),
-                      style: getIt<FruitTheme>().secondaryTextTheme.bodyText1,
                     ),
                   ),
                 ),

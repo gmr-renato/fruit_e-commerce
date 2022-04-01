@@ -4,6 +4,7 @@ import 'package:fruit_design_system/fruit_design_system.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/bloc/shopping_cart_bloc.dart';
+import '../../fruit_ds_intersection/show_feature_under_construction_dialog.dart';
 import '../../infrastructure/core/get_initializer.dart';
 import '../helpers/value_formatters.dart';
 import '../widgets/product_shopping_bag_tile.dart';
@@ -59,7 +60,7 @@ class ShoppingCartPage extends StatelessWidget {
                       builder: (_, state) {
                         return state.map(
                           initial: (initial) => const Center(
-                            child: Text('No products'),
+                            child: Text('Sua sacola está vazia'),
                           ),
                           hasProduct: (hasProduct) => Scrollbar(
                             isAlwaysShown: true,
@@ -170,7 +171,9 @@ class ShoppingCartPage extends StatelessWidget {
                                     child: _text,
                                   ),
                                   orElse: () => ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () =>
+                                        showFruitFeatureUnderConstructionDialog(
+                                            context),
                                     child: _text,
                                   ),
                                 );
