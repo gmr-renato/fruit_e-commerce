@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../application/bloc/shopping_cart_bloc.dart';
 import '../../infrastructure/core/get_initializer.dart';
 import '../widgets/product_shopping_bag_tile.dart';
 
@@ -46,19 +49,39 @@ class ShoppingCartPage extends StatelessWidget {
                   ],
                 ),
                 Expanded(
-                  child: Scrollbar(
-                    isAlwaysShown: true,
-                    child: ListView.separated(
-                      itemCount: 4,
-                      itemBuilder: (BuildContext context, int index) {
-                        return const ProductShoppingCartTile();
-                      },
-                      separatorBuilder: (BuildContext context, int index) {
-                        return const Divider(
-                          height: 1,
-                        );
-                      },
-                    ),
+                  child: BlocBuilder<ShoppingCartBloc, ShoppingCartState>(
+                    bloc: getIt<ShoppingCartBloc>(),
+                    builder: (context, state) {
+                      return state.map(
+                        initial: (initial) => Scrollbar(
+                          isAlwaysShown: true,
+                          child: ListView.separated(
+                            itemCount:
+                                getIt<ShoppingCartBloc>().products.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return const ProductShoppingCartTile();
+                            },
+                            separatorBuilder: (
+                              BuildContext context,
+                              int index,
+                            ) {
+                              return const Divider(height: 1);
+                            },
+                          ),
+                        ),
+                        creatingOrder: (creatingOrder) => const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                        orderCreationFailed: (orderCreationFailed) =>
+                            const Center(
+                          child: Text('Erro ao criar pedido'),
+                        ),
+                        orderCreationSuccedded: (orderCreationSuccedded) =>
+                            const Center(
+                          child: Text('Pedido criado com sucesso'),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],

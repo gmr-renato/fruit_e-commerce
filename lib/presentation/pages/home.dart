@@ -20,9 +20,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _bottomSheetHight = fullScreenBottomSheetHight(context);
 
-    final _controller = Get.put(
+    final _ecommerceController = Get.put(
       ECommerceProductsController(getIt<ProductRepository>()),
     );
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -43,7 +44,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: _controller.obx(
+      body: _ecommerceController.obx(
         (state) => ListView(
           children: <Widget>[
             Padding(
@@ -60,9 +61,9 @@ class HomePage extends StatelessWidget {
                   horizontal: FruitUnit.medium,
                 ),
                 scrollDirection: Axis.horizontal,
-                itemCount: _controller.products.length,
+                itemCount: _ecommerceController.products.length,
                 itemBuilder: (BuildContext _, int index) {
-                  return _controller.products[index].fold(
+                  return _ecommerceController.products[index].fold(
                     (l) => const Text('Error'),
                     (r) => NewProductCard(
                       r,
@@ -85,9 +86,9 @@ class HomePage extends StatelessWidget {
             ListView.separated(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: _controller.products.length,
+              itemCount: _ecommerceController.products.length,
               itemBuilder: (BuildContext context, int index) {
-                return _controller.products[index].fold(
+                return _ecommerceController.products[index].fold(
                   (l) => const Text('Error'),
                   (r) => ProductListTile(
                     r,

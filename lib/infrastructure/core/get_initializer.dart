@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../application/bloc/shopping_cart_bloc.dart';
 import '../product_repository.dart';
 
 final GetIt getIt = GetIt.instance;
@@ -16,4 +17,5 @@ void getItInit() {
     () => ProductRepository(getIt<FirebaseFirestore>()),
   );
   GetIt.I.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
+  GetIt.I.registerLazySingleton<ShoppingCartBloc>(() => ShoppingCartBloc());
 }

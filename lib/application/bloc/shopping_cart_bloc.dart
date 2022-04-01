@@ -9,14 +9,14 @@ part 'shopping_cart_state.dart';
 part 'shopping_cart_bloc.freezed.dart';
 
 class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
-  final Map<Product, int> _products = <Product, int>{};
+  final Map<Product, int> products = <Product, int>{};
 
   ShoppingCartBloc() : super(const _Initial()) {
     on<ShoppingCartEvent>((event, emit) {
       event.map(
         started: (started) => emit(const _Initial()),
         addProduct: (addProduct) {
-          _products.update(
+          products.update(
             addProduct.product,
             (count) => count + addProduct.quantity,
             ifAbsent: () => addProduct.quantity,
@@ -24,7 +24,7 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
           emit(const _Initial());
         },
         removeProduct: (removeProduct) {
-          _products.update(
+          products.update(
             removeProduct.product,
             (count) => count - 1,
           );

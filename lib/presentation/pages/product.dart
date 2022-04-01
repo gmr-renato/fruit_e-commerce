@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 
+import '../../application/bloc/shopping_cart_bloc.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/product.dart';
 import '../../infrastructure/core/get_initializer.dart';
@@ -101,6 +102,7 @@ class _QuantityAndValue extends StatefulWidget {
 
 class _QuantityAndValueState extends State<_QuantityAndValue> {
   int _quantity = 1;
+  final _shoppingCartBloc = getIt<ShoppingCartBloc>();
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +207,12 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                       0,
                     ),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _shoppingCartBloc.add(ShoppingCartEvent.addProduct(
+                          widget.product,
+                          _quantity,
+                        ));
+                      },
                       child: const Text('Adicionar à sacola'),
                     ),
                   ),
