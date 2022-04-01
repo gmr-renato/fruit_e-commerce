@@ -64,6 +64,7 @@ class ShoppingCartPage extends StatelessWidget {
                           ),
                           hasProduct: (hasProduct) => Scrollbar(
                             isAlwaysShown: true,
+                            // FIX: rebuild listview when a product is removed
                             child: ListView.separated(
                               itemCount: _bloc.products.length,
                               itemBuilder: (BuildContext __, int index) {
