@@ -162,7 +162,10 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                   child: Padding(
                     padding: const EdgeInsets.all(FruitUnit.medium),
                     child: Text(
-                      '${(_localizedDetails.interval.getOrCrash() * _quantity).toStringAsFixed(1)}  ${_localizedDetails.unit.getOrCrash()}',
+                      unitFormatterWithSymbol(
+                        _localizedDetails.interval.getOrCrash() * _quantity,
+                        _localizedDetails.unit,
+                      ),
                       style: getIt<FruitTheme>().secondaryTextTheme.bodyText1,
                     ),
                   ),

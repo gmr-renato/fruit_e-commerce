@@ -6,6 +6,7 @@ import 'package:fruit_design_system/fruit_design_system.dart';
 import '../../application/bloc/shopping_cart_bloc.dart';
 import '../../domain/shopping_cart_product.dart';
 import '../../infrastructure/core/get_initializer.dart';
+import '../helpers/value_formatters.dart';
 
 class ProductShoppingCartTile extends StatelessWidget {
   const ProductShoppingCartTile(
@@ -56,7 +57,14 @@ class ProductShoppingCartTile extends StatelessWidget {
                       children: [
                         const FruitBoxSpacer.xSmall(),
                         Text(
-                          '${shoppingCartProduct.paidPrice.getOrCrash() * shoppingCartProduct.quantity.getOrCrash()} - R\$ 20,00',
+                          '${currencyFormatterWithSymbol(
+                            shoppingCartProduct.paidPrice.getOrCrash() *
+                                shoppingCartProduct.quantity.getOrCrash(),
+                            shoppingCartProduct.currency,
+                          )} - ${unitFormatterWithSymbol(
+                            shoppingCartProduct.quantity.getOrCrash(),
+                            shoppingCartProduct.unit,
+                          )}',
                           style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
                         ),
                       ],

@@ -20,7 +20,8 @@ class ProductListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _i18nDetails = product.i18nDetails[IsoCountryCode.fromString('BR')]!;
+    final _localizedDetails =
+        product.i18nDetails[IsoCountryCode.fromString('BR')]!;
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => showFullScreenBottomSheet(
@@ -48,7 +49,7 @@ class ProductListTile extends StatelessWidget {
                   children: [
                     const FruitBoxSpacer.xSmall(),
                     Text(
-                      _i18nDetails.name.getOrCrash(),
+                      _localizedDetails.name.getOrCrash(),
                       style: getIt<FruitTheme>().primaryTextTheme.bodyText1,
                     ),
                   ],
@@ -62,7 +63,8 @@ class ProductListTile extends StatelessWidget {
                     ),
                     const FruitBoxSpacer.xSmall(),
                     Text(
-                      '4.85',
+                      // TODO: implement product rating note
+                      '5.0',
                       style: getIt<FruitTheme>()
                           .primaryTextTheme
                           .bodyText2!
@@ -78,10 +80,7 @@ class ProductListTile extends StatelessWidget {
                   children: [
                     const FruitBoxSpacer.xSmall(),
                     Text(
-                      currencyFormatterWithSymbol(
-                        _i18nDetails.price.getOrCrash(),
-                        _i18nDetails.currency,
-                      ),
+                      '${currencyFormatterWithSymbol(_localizedDetails.price.getOrCrash(), _localizedDetails.currency)}/${unitSymbol(_localizedDetails.unit)}',
                       style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
                     ),
                   ],

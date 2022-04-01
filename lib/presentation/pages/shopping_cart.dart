@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/bloc/shopping_cart_bloc.dart';
 import '../../infrastructure/core/get_initializer.dart';
+import '../helpers/value_formatters.dart';
 import '../widgets/product_shopping_bag_tile.dart';
 
 class ShoppingCartPage extends StatelessWidget {
@@ -114,11 +115,31 @@ class ShoppingCartPage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            'Total: R\$ 80,00',
-                            style: getIt<FruitTheme>()
-                                .secondaryTextTheme
-                                .bodyText1,
+                          BlocBuilder<ShoppingCartBloc, ShoppingCartState>(
+                            bloc: _bloc,
+                            builder: (context, state) {
+                              return state.maybeMap(
+                                hasProduct: (hasProduct) {
+                                  double _total = 0;
+                                  _bloc.products.forEach((e) => _total +=
+                                      e.paidPrice.getOrCrash() *
+                                          e.quantity.getOrCrash());
+                                  return Text(
+                                    currencyFormatterWithSymbol(
+                                        _total, _bloc.products.first.currency),
+                                    style: getIt<FruitTheme>()
+                                        .secondaryTextTheme
+                                        .bodyText1,
+                                  );
+                                },
+                                orElse: () => Text(
+                                  'Sacola vazia',
+                                  style: getIt<FruitTheme>()
+                                      .secondaryTextTheme
+                                      .bodyText1,
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -133,9 +154,27 @@ class ShoppingCartPage extends StatelessWidget {
                               FruitUnit.medium,
                               0,
                             ),
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: const Text('Finalizar compra (checkout)'),
+                            child: BlocBuilder<ShoppingCartBloc,
+                                ShoppingCartState>(
+                              bloc: _bloc,
+                              builder: (
+                                context,
+                                state,
+                              ) {
+                                const _text =
+                                    Text('Finalizar compra (checkout)');
+
+                                return state.maybeMap(
+                                  initial: (initial) => const ElevatedButton(
+                                    onPressed: null,
+                                    child: _text,
+                                  ),
+                                  orElse: () => ElevatedButton(
+                                    onPressed: () {},
+                                    child: _text,
+                                  ),
+                                );
+                              },
                             ),
                           ),
                         ),

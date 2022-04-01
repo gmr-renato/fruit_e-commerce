@@ -6,6 +6,7 @@ import '../../domain/core/value_objects.dart';
 import '../../domain/product.dart';
 import '../../infrastructure/core/get_initializer.dart';
 import '../helpers/show_full_screen_bottom_sheet.dart';
+import '../helpers/value_formatters.dart';
 import '../pages/product.dart';
 
 class NewProductCard extends StatelessWidget {
@@ -20,6 +21,8 @@ class NewProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _localizedDetails =
+        product.i18nDetails[IsoCountryCode.fromString('BR')]!;
     return GestureDetector(
       onTap: () => showFullScreenBottomSheet(
         context,
@@ -40,8 +43,7 @@ class NewProductCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      product.i18nDetails[IsoCountryCode.fromString('BR')]!.name
-                          .getOrCrash(),
+                      _localizedDetails.name.getOrCrash(),
                       style: getIt<FruitTheme>().primaryTextTheme.bodyText1,
                     ),
                   ],
@@ -50,8 +52,7 @@ class NewProductCard extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        // FORMAT STRING
-                        'R\$ ${product.i18nDetails[IsoCountryCode.fromString('BR')]!.price.getOrCrash()}/${product.i18nDetails[IsoCountryCode.fromString('BR')]!.unit.getOrCrash()}',
+                        '${currencyFormatterWithSymbol(_localizedDetails.price.getOrCrash(), _localizedDetails.currency)}/${unitSymbol(_localizedDetails.unit)}',
                         style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
                       ),
                     ),
