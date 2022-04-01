@@ -34,7 +34,7 @@ class DomainCoreConstants {
   static const String brl = 'BRL';
   static const String usd = 'USD';
 
-  static const Set<String> currency = {
+  static const Set<String> currencies = {
     brl,
     usd,
   };

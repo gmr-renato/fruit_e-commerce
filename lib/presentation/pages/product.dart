@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
+import '../helpers/value_formatters.dart';
 import 'shopping_cart.dart';
 
 import '../../application/bloc/shopping_cart_bloc.dart';
@@ -75,7 +76,8 @@ class ProductPage extends StatelessWidget {
                           FruitUnit.medium,
                         ),
                         child: Text(
-                          product.i18nDetails[IsoCountryCode('BR')]!.description
+                          product.i18nDetails[IsoCountryCode.fromString('BR')]!
+                              .description
                               .getOrCrash(),
                           style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
                         ),
@@ -107,6 +109,9 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
 
   @override
   Widget build(BuildContext context) {
+    final _localizedDetails =
+        widget.product.i18nDetails[IsoCountryCode.fromString('BR')]!;
+
     return Material(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
@@ -123,8 +128,7 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    widget.product.i18nDetails[IsoCountryCode('BR')]!.name
-                        .getOrCrash(),
+                    _localizedDetails.name.getOrCrash(),
                     style: getIt<FruitTheme>().secondaryTextTheme.headline6,
                   ),
                 ],
@@ -158,7 +162,7 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                   child: Padding(
                     padding: const EdgeInsets.all(FruitUnit.medium),
                     child: Text(
-                      '${(widget.product.i18nDetails[IsoCountryCode('BR')]!.interval.getOrCrash() * _quantity).toStringAsFixed(1)}  ${widget.product.i18nDetails[IsoCountryCode('BR')]!.unit.getOrCrash()}',
+                      '${(_localizedDetails.interval.getOrCrash() * _quantity).toStringAsFixed(1)}  ${_localizedDetails.unit.getOrCrash()}',
                       style: getIt<FruitTheme>().secondaryTextTheme.bodyText1,
                     ),
                   ),
@@ -190,7 +194,15 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Total: R\$ ${(widget.product.i18nDetails[IsoCountryCode('BR')]!.price.getOrCrash() * widget.product.i18nDetails[IsoCountryCode('BR')]!.interval.getOrCrash() * _quantity).toStringAsFixed(2)}',
+                    currencyFormatterWithSymbol(
+                      (_localizedDetails.price.getOrCrash() *
+                          _localizedDetails.interval.getOrCrash() *
+                          _quantity),
+                      widget
+                          .product
+                          .i18nDetails[IsoCountryCode.fromString('BR')]!
+                          .currency,
+                    ),
                     style: getIt<FruitTheme>().secondaryTextTheme.headline6,
                   ),
                 ],
@@ -214,21 +226,13 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                             ShoppingCartProduct(
                               uid: widget.product.uid,
                               imageUrl: widget.product.imageUrl,
-                              name: widget.product
-                                  .i18nDetails[IsoCountryCode('BR')]!.name,
-                              paidPrice: widget.product
-                                  .i18nDetails[IsoCountryCode('BR')]!.price,
-                              currency: widget.product
-                                  .i18nDetails[IsoCountryCode('BR')]!.currency,
-                              unit: widget.product
-                                  .i18nDetails[IsoCountryCode('BR')]!.unit,
+                              name: _localizedDetails.name,
+                              paidPrice: _localizedDetails.price,
+                              currency: _localizedDetails.currency,
+                              unit: _localizedDetails.unit,
                               quantity: ItemQuantity(
                                 _quantity *
-                                    widget
-                                        .product
-                                        .i18nDetails[IsoCountryCode('BR')]!
-                                        .interval
-                                        .getOrCrash(),
+                                    _localizedDetails.interval.getOrCrash(),
                               ),
                             ),
                           ),

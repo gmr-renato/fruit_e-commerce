@@ -42,7 +42,7 @@ class ProductDTO with _$ProductDTO {
         imageUrl: URL(imageUrl),
         i18nDetails: i18n.map(
           (key, value) => MapEntry(
-            IsoCountryCode(key),
+            IsoCountryCode.fromString(key),
             value.toDomain(),
           ),
         ),

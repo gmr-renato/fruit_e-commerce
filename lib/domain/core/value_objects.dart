@@ -67,19 +67,24 @@ class URL extends AValueObject<String> {
 }
 
 class IsoCountryCode extends AValueObject<String> {
-  factory IsoCountryCode(String input) => IsoCountryCode._(
-        validateMatchStringLength(
-          input,
-          DomainCoreConstants.isoCountryCodeLength,
-        )
-            .flatMap(validateStringNotEmpty)
-            .flatMap(validateIsoCountryCodeIsCovered),
+  const IsoCountryCode._(this.value);
+
+  factory IsoCountryCode.fromString(String input) => IsoCountryCode._(
+        validateStringNotEmpty(input).flatMap(validateIsoCountryCodeIsCovered),
       );
 
-  const IsoCountryCode._(this.value);
+  factory IsoCountryCode.br() => IsoCountryCode._(
+        right(DomainCoreConstants.brIsoCountryCode),
+      );
+  factory IsoCountryCode.us() => IsoCountryCode._(
+        right(DomainCoreConstants.usIsoCountryCode),
+      );
 
   @override
   final Either<ValueFailure<String>, String> value;
+
+  bool isBr() => getOrCrash() == DomainCoreConstants.brIsoCountryCode;
+  bool isUs() => getOrCrash() == DomainCoreConstants.usIsoCountryCode;
 }
 
 class ColorCode extends AValueObject<int> {
@@ -141,8 +146,8 @@ class UnitType extends AValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  bool isInvited() => getOrCrash() == DomainCoreConstants.quilograms;
-  bool isGoing() => getOrCrash() == DomainCoreConstants.pounds;
+  bool isQuilograms() => getOrCrash() == DomainCoreConstants.quilograms;
+  bool isPounds() => getOrCrash() == DomainCoreConstants.pounds;
 }
 
 class UnitInterval extends AValueObject<double> {

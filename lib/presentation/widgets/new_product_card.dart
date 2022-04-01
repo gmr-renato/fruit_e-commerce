@@ -40,7 +40,7 @@ class NewProductCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      product.i18nDetails[IsoCountryCode('BR')]!.name
+                      product.i18nDetails[IsoCountryCode.fromString('BR')]!.name
                           .getOrCrash(),
                       style: getIt<FruitTheme>().primaryTextTheme.bodyText1,
                     ),
@@ -51,7 +51,7 @@ class NewProductCard extends StatelessWidget {
                     Expanded(
                       child: Text(
                         // FORMAT STRING
-                        'R\$ ${product.i18nDetails[IsoCountryCode('BR')]!.price.getOrCrash()}/${product.i18nDetails[IsoCountryCode('BR')]!.unit.getOrCrash()}',
+                        'R\$ ${product.i18nDetails[IsoCountryCode.fromString('BR')]!.price.getOrCrash()}/${product.i18nDetails[IsoCountryCode.fromString('BR')]!.unit.getOrCrash()}',
                         style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
                       ),
                     ),

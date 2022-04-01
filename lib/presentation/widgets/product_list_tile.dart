@@ -5,6 +5,7 @@ import '../../domain/core/value_objects.dart';
 import '../../domain/product.dart';
 import '../../infrastructure/core/get_initializer.dart';
 import '../helpers/show_full_screen_bottom_sheet.dart';
+import '../helpers/value_formatters.dart';
 import '../pages/product.dart';
 
 class ProductListTile extends StatelessWidget {
@@ -19,6 +20,7 @@ class ProductListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _i18nDetails = product.i18nDetails[IsoCountryCode.fromString('BR')]!;
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => showFullScreenBottomSheet(
@@ -46,8 +48,7 @@ class ProductListTile extends StatelessWidget {
                   children: [
                     const FruitBoxSpacer.xSmall(),
                     Text(
-                      product.i18nDetails[IsoCountryCode('BR')]!.name
-                          .getOrCrash(),
+                      _i18nDetails.name.getOrCrash(),
                       style: getIt<FruitTheme>().primaryTextTheme.bodyText1,
                     ),
                   ],
@@ -77,7 +78,10 @@ class ProductListTile extends StatelessWidget {
                   children: [
                     const FruitBoxSpacer.xSmall(),
                     Text(
-                      'R\$ ${product.i18nDetails[IsoCountryCode('BR')]!.price.getOrCrash()}/kg',
+                      currencyFormatterWithSymbol(
+                        _i18nDetails.price.getOrCrash(),
+                        _i18nDetails.currency,
+                      ),
                       style: getIt<FruitTheme>().primaryTextTheme.bodyText2,
                     ),
                   ],

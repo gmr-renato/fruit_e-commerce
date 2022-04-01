@@ -112,7 +112,7 @@ Either<ValueFailure<String>, String> validateUnitType(String input) {
 }
 
 Either<ValueFailure<String>, String> validateCurrency(String input) {
-  if (DomainCoreConstants.unitTypes.contains(input)) {
+  if (DomainCoreConstants.currencies.contains(input)) {
     return right(input);
   } else {
     return left(
