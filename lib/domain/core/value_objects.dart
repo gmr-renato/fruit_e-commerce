@@ -103,25 +103,46 @@ class Price extends AValueObject<double> {
   final Either<ValueFailure<double>, double> value;
 }
 
+class Currency extends AValueObject<String> {
+  const Currency._(this.value);
+
+  factory Currency.fromString(String input) => Currency._(
+        validateStringNotEmpty(input).flatMap(validateCurrency),
+      );
+
+  factory Currency.brl() => Currency._(
+        right(DomainCoreConstants.brl),
+      );
+  factory Currency.usd() => Currency._(
+        right(DomainCoreConstants.usd),
+      );
+
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  bool isBrl() => getOrCrash() == DomainCoreConstants.brl;
+  bool isUsd() => getOrCrash() == DomainCoreConstants.usd;
+}
+
 class UnitType extends AValueObject<String> {
   const UnitType._(this.value);
 
   factory UnitType.fromString(String input) => UnitType._(
-        validateStringNotEmpty(input).flatMap(validateGuestStatus),
+        validateStringNotEmpty(input).flatMap(validateUnitType),
       );
 
-  factory UnitType.invited() => UnitType._(
+  factory UnitType.quilograms() => UnitType._(
         right(DomainCoreConstants.quilograms),
       );
-  factory UnitType.going() => UnitType._(
-        right(DomainCoreConstants.unity),
+  factory UnitType.pounds() => UnitType._(
+        right(DomainCoreConstants.pounds),
       );
 
   @override
   final Either<ValueFailure<String>, String> value;
 
   bool isInvited() => getOrCrash() == DomainCoreConstants.quilograms;
-  bool isGoing() => getOrCrash() == DomainCoreConstants.unity;
+  bool isGoing() => getOrCrash() == DomainCoreConstants.pounds;
 }
 
 class UnitInterval extends AValueObject<double> {

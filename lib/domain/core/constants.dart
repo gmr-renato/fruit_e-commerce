@@ -21,12 +21,21 @@ class DomainCoreConstants {
 
   static const int maxDescriptionLength = 500;
 
-  ///UnitType
+  ///UnitTypes
   static const String quilograms = 'quilograms';
-  static const String unity = 'unity';
+  static const String pounds = 'pounds';
 
   static const Set<String> unitTypes = {
     quilograms,
-    unity,
+    pounds,
+  };
+
+  ///Currencies
+  static const String brl = 'BRL';
+  static const String usd = 'USD';
+
+  static const Set<String> currency = {
+    brl,
+    usd,
   };
 }

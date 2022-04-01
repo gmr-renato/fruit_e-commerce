@@ -101,7 +101,17 @@ Either<ValueFailure<double>, double> validatePositiveDouble(double input) {
   }
 }
 
-Either<ValueFailure<String>, String> validateGuestStatus(String input) {
+Either<ValueFailure<String>, String> validateUnitType(String input) {
+  if (DomainCoreConstants.unitTypes.contains(input)) {
+    return right(input);
+  } else {
+    return left(
+      ValueFailure.unitTypeNotFound(failedValue: input),
+    );
+  }
+}
+
+Either<ValueFailure<String>, String> validateCurrency(String input) {
   if (DomainCoreConstants.unitTypes.contains(input)) {
     return right(input);
   } else {

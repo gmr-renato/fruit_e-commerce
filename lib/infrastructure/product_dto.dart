@@ -56,6 +56,7 @@ class ProductI18nDetailsDTO with _$ProductI18nDetailsDTO {
     required String name,
     required String description,
     required double price,
+    required String currency,
     required String unit,
     required double interval,
   }) = _ProductI18nDetailsDTO;
@@ -67,6 +68,7 @@ class ProductI18nDetailsDTO with _$ProductI18nDetailsDTO {
         name: i18n.name.getOrCrash(),
         description: i18n.description.getOrCrash(),
         price: i18n.price.getOrCrash(),
+        currency: i18n.currency.getOrCrash(),
         unit: i18n.unit.getOrCrash(),
         interval: i18n.interval.getOrCrash(),
       );
@@ -78,6 +80,7 @@ class ProductI18nDetailsDTO with _$ProductI18nDetailsDTO {
         name: DisplayName(name),
         description: DescriptionText(description),
         price: Price(price),
+        currency: Currency.fromString(currency),
         unit: UnitType.fromString(unit),
         interval: UnitInterval(interval),
       );

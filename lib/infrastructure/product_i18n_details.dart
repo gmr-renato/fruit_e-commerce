@@ -8,6 +8,7 @@ class ProductI18nDetails {
     required this.name,
     required this.description,
     required this.price,
+    required this.currency,
     required this.unit,
     required this.interval,
   });
@@ -15,12 +16,14 @@ class ProductI18nDetails {
   final DisplayName name;
   final DescriptionText description;
   final Price price;
+  final Currency currency;
   final UnitType unit;
   final UnitInterval interval;
 
   Option<ValueFailure<dynamic>> get failureOption => name.failureOrUnit
       .andThen(description.failureOrUnit)
       .andThen(price.failureOrUnit)
+      .andThen(currency.failureOrUnit)
       .andThen(unit.failureOrUnit)
       .andThen(interval.failureOrUnit)
       .fold((f) => some(f), (r) => none());
@@ -30,7 +33,7 @@ class ProductI18nDetails {
 
   @override
   String toString() {
-    return 'ProductI18nDetails(name: $name, description: $description, price: $price, unit: $unit, interval: $interval)';
+    return 'ProductI18nDetails(name: $name, description: $description, price: $price, currency: $currency, unit: $unit, interval: $interval)';
   }
 
   @override
@@ -41,6 +44,7 @@ class ProductI18nDetails {
         other.name == name &&
         other.description == description &&
         other.price == price &&
+        other.currency == currency &&
         other.unit == unit &&
         other.interval == interval;
   }
@@ -50,6 +54,7 @@ class ProductI18nDetails {
     return name.hashCode ^
         description.hashCode ^
         price.hashCode ^
+        currency.hashCode ^
         unit.hashCode ^
         interval.hashCode;
   }

@@ -252,12 +252,14 @@ class _$ProductI18nDetailsDTOTearOff {
       {required String name,
       required String description,
       required double price,
+      required String currency,
       required String unit,
       required double interval}) {
     return _ProductI18nDetailsDTO(
       name: name,
       description: description,
       price: price,
+      currency: currency,
       unit: unit,
       interval: interval,
     );
@@ -276,6 +278,7 @@ mixin _$ProductI18nDetailsDTO {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
+  String get currency => throw _privateConstructorUsedError;
   String get unit => throw _privateConstructorUsedError;
   double get interval => throw _privateConstructorUsedError;
 
@@ -294,6 +297,7 @@ abstract class $ProductI18nDetailsDTOCopyWith<$Res> {
       {String name,
       String description,
       double price,
+      String currency,
       String unit,
       double interval});
 }
@@ -312,6 +316,7 @@ class _$ProductI18nDetailsDTOCopyWithImpl<$Res>
     Object? name = freezed,
     Object? description = freezed,
     Object? price = freezed,
+    Object? currency = freezed,
     Object? unit = freezed,
     Object? interval = freezed,
   }) {
@@ -328,6 +333,10 @@ class _$ProductI18nDetailsDTOCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      currency: currency == freezed
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
       unit: unit == freezed
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
@@ -351,6 +360,7 @@ abstract class _$ProductI18nDetailsDTOCopyWith<$Res>
       {String name,
       String description,
       double price,
+      String currency,
       String unit,
       double interval});
 }
@@ -371,6 +381,7 @@ class __$ProductI18nDetailsDTOCopyWithImpl<$Res>
     Object? name = freezed,
     Object? description = freezed,
     Object? price = freezed,
+    Object? currency = freezed,
     Object? unit = freezed,
     Object? interval = freezed,
   }) {
@@ -387,6 +398,10 @@ class __$ProductI18nDetailsDTOCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      currency: currency == freezed
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
       unit: unit == freezed
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
@@ -407,6 +422,7 @@ class _$_ProductI18nDetailsDTO extends _ProductI18nDetailsDTO {
       {required this.name,
       required this.description,
       required this.price,
+      required this.currency,
       required this.unit,
       required this.interval})
       : super._();
@@ -421,13 +437,15 @@ class _$_ProductI18nDetailsDTO extends _ProductI18nDetailsDTO {
   @override
   final double price;
   @override
+  final String currency;
+  @override
   final String unit;
   @override
   final double interval;
 
   @override
   String toString() {
-    return 'ProductI18nDetailsDTO(name: $name, description: $description, price: $price, unit: $unit, interval: $interval)';
+    return 'ProductI18nDetailsDTO(name: $name, description: $description, price: $price, currency: $currency, unit: $unit, interval: $interval)';
   }
 
   @override
@@ -439,6 +457,7 @@ class _$_ProductI18nDetailsDTO extends _ProductI18nDetailsDTO {
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.price, price) &&
+            const DeepCollectionEquality().equals(other.currency, currency) &&
             const DeepCollectionEquality().equals(other.unit, unit) &&
             const DeepCollectionEquality().equals(other.interval, interval));
   }
@@ -449,6 +468,7 @@ class _$_ProductI18nDetailsDTO extends _ProductI18nDetailsDTO {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(price),
+      const DeepCollectionEquality().hash(currency),
       const DeepCollectionEquality().hash(unit),
       const DeepCollectionEquality().hash(interval));
 
@@ -469,6 +489,7 @@ abstract class _ProductI18nDetailsDTO extends ProductI18nDetailsDTO {
       {required String name,
       required String description,
       required double price,
+      required String currency,
       required String unit,
       required double interval}) = _$_ProductI18nDetailsDTO;
   const _ProductI18nDetailsDTO._() : super._();
@@ -482,6 +503,8 @@ abstract class _ProductI18nDetailsDTO extends ProductI18nDetailsDTO {
   String get description;
   @override
   double get price;
+  @override
+  String get currency;
   @override
   String get unit;
   @override

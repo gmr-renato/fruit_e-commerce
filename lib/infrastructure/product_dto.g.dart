@@ -31,6 +31,7 @@ _$_ProductI18nDetailsDTO _$$_ProductI18nDetailsDTOFromJson(
       name: json['name'] as String,
       description: json['description'] as String,
       price: (json['price'] as num).toDouble(),
+      currency: json['currency'] as String,
       unit: json['unit'] as String,
       interval: (json['interval'] as num).toDouble(),
     );
@@ -41,6 +42,7 @@ Map<String, dynamic> _$$_ProductI18nDetailsDTOToJson(
       'name': instance.name,
       'description': instance.description,
       'price': instance.price,
+      'currency': instance.currency,
       'unit': instance.unit,
       'interval': instance.interval,
     };
