@@ -155,3 +155,14 @@ class UnitInterval extends AValueObject<double> {
   @override
   final Either<ValueFailure<double>, double> value;
 }
+
+class ItemQuantity extends AValueObject<double> {
+  factory ItemQuantity(double input) {
+    return ItemQuantity._(validatePositiveDouble(input));
+  }
+
+  const ItemQuantity._(this.value);
+
+  @override
+  final Either<ValueFailure<double>, double> value;
+}

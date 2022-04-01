@@ -5,6 +5,7 @@ import 'package:fruit_design_system/fruit_design_system.dart';
 import '../../application/bloc/shopping_cart_bloc.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/product.dart';
+import '../../domain/shopping_cart_product.dart';
 import '../../infrastructure/core/get_initializer.dart';
 
 class ProductPage extends StatelessWidget {
@@ -207,12 +208,30 @@ class _QuantityAndValueState extends State<_QuantityAndValue> {
                       0,
                     ),
                     child: ElevatedButton(
-                      onPressed: () {
-                        _shoppingCartBloc.add(ShoppingCartEvent.addProduct(
-                          widget.product,
-                          _quantity,
-                        ));
-                      },
+                      onPressed: () => _shoppingCartBloc.add(
+                        ShoppingCartEvent.addProduct(
+                          ShoppingCartProduct(
+                            uid: widget.product.uid,
+                            imageUrl: widget.product.imageUrl,
+                            name: widget.product
+                                .i18nDetails[IsoCountryCode('BR')]!.name,
+                            paidPrice: widget.product
+                                .i18nDetails[IsoCountryCode('BR')]!.price,
+                            currency: widget.product
+                                .i18nDetails[IsoCountryCode('BR')]!.currency,
+                            unit: widget.product
+                                .i18nDetails[IsoCountryCode('BR')]!.unit,
+                            quantity: ItemQuantity(
+                              _quantity *
+                                  widget
+                                      .product
+                                      .i18nDetails[IsoCountryCode('BR')]!
+                                      .interval
+                                      .getOrCrash(),
+                            ),
+                          ),
+                        ),
+                      ),
                       child: const Text('Adicionar à sacola'),
                     ),
                   ),

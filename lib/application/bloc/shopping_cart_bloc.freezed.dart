@@ -22,16 +22,15 @@ class _$ShoppingCartEventTearOff {
     return const _Started();
   }
 
-  _AddProduct addProduct(Product product, int quantity) {
+  _AddProduct addProduct(ShoppingCartProduct product) {
     return _AddProduct(
       product,
-      quantity,
     );
   }
 
-  _RemoveProduct removeProduct(Product product) {
+  _RemoveProduct removeProduct(int index) {
     return _RemoveProduct(
-      product,
+      index,
     );
   }
 
@@ -48,24 +47,24 @@ mixin _$ShoppingCartEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Product product, int quantity) addProduct,
-    required TResult Function(Product product) removeProduct,
+    required TResult Function(ShoppingCartProduct product) addProduct,
+    required TResult Function(int index) removeProduct,
     required TResult Function() createOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product, int quantity)? addProduct,
-    TResult Function(Product product)? removeProduct,
+    TResult Function(ShoppingCartProduct product)? addProduct,
+    TResult Function(int index)? removeProduct,
     TResult Function()? createOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product, int quantity)? addProduct,
-    TResult Function(Product product)? removeProduct,
+    TResult Function(ShoppingCartProduct product)? addProduct,
+    TResult Function(int index)? removeProduct,
     TResult Function()? createOrder,
     required TResult orElse(),
   }) =>
@@ -153,8 +152,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Product product, int quantity) addProduct,
-    required TResult Function(Product product) removeProduct,
+    required TResult Function(ShoppingCartProduct product) addProduct,
+    required TResult Function(int index) removeProduct,
     required TResult Function() createOrder,
   }) {
     return started();
@@ -164,8 +163,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product, int quantity)? addProduct,
-    TResult Function(Product product)? removeProduct,
+    TResult Function(ShoppingCartProduct product)? addProduct,
+    TResult Function(int index)? removeProduct,
     TResult Function()? createOrder,
   }) {
     return started?.call();
@@ -175,8 +174,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product, int quantity)? addProduct,
-    TResult Function(Product product)? removeProduct,
+    TResult Function(ShoppingCartProduct product)? addProduct,
+    TResult Function(int index)? removeProduct,
     TResult Function()? createOrder,
     required TResult orElse(),
   }) {
@@ -233,7 +232,7 @@ abstract class _$AddProductCopyWith<$Res> {
   factory _$AddProductCopyWith(
           _AddProduct value, $Res Function(_AddProduct) then) =
       __$AddProductCopyWithImpl<$Res>;
-  $Res call({Product product, int quantity});
+  $Res call({ShoppingCartProduct product});
 }
 
 /// @nodoc
@@ -250,17 +249,12 @@ class __$AddProductCopyWithImpl<$Res>
   @override
   $Res call({
     Object? product = freezed,
-    Object? quantity = freezed,
   }) {
     return _then(_AddProduct(
       product == freezed
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
-              as Product,
-      quantity == freezed
-          ? _value.quantity
-          : quantity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as ShoppingCartProduct,
     ));
   }
 }
@@ -268,16 +262,14 @@ class __$AddProductCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AddProduct implements _AddProduct {
-  const _$_AddProduct(this.product, this.quantity);
+  const _$_AddProduct(this.product);
 
   @override
-  final Product product;
-  @override
-  final int quantity;
+  final ShoppingCartProduct product;
 
   @override
   String toString() {
-    return 'ShoppingCartEvent.addProduct(product: $product, quantity: $quantity)';
+    return 'ShoppingCartEvent.addProduct(product: $product)';
   }
 
   @override
@@ -285,15 +277,12 @@ class _$_AddProduct implements _AddProduct {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AddProduct &&
-            const DeepCollectionEquality().equals(other.product, product) &&
-            const DeepCollectionEquality().equals(other.quantity, quantity));
+            const DeepCollectionEquality().equals(other.product, product));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(product),
-      const DeepCollectionEquality().hash(quantity));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(product));
 
   @JsonKey(ignore: true)
   @override
@@ -304,35 +293,35 @@ class _$_AddProduct implements _AddProduct {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Product product, int quantity) addProduct,
-    required TResult Function(Product product) removeProduct,
+    required TResult Function(ShoppingCartProduct product) addProduct,
+    required TResult Function(int index) removeProduct,
     required TResult Function() createOrder,
   }) {
-    return addProduct(product, quantity);
+    return addProduct(product);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product, int quantity)? addProduct,
-    TResult Function(Product product)? removeProduct,
+    TResult Function(ShoppingCartProduct product)? addProduct,
+    TResult Function(int index)? removeProduct,
     TResult Function()? createOrder,
   }) {
-    return addProduct?.call(product, quantity);
+    return addProduct?.call(product);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product, int quantity)? addProduct,
-    TResult Function(Product product)? removeProduct,
+    TResult Function(ShoppingCartProduct product)? addProduct,
+    TResult Function(int index)? removeProduct,
     TResult Function()? createOrder,
     required TResult orElse(),
   }) {
     if (addProduct != null) {
-      return addProduct(product, quantity);
+      return addProduct(product);
     }
     return orElse();
   }
@@ -376,10 +365,9 @@ class _$_AddProduct implements _AddProduct {
 }
 
 abstract class _AddProduct implements ShoppingCartEvent {
-  const factory _AddProduct(Product product, int quantity) = _$_AddProduct;
+  const factory _AddProduct(ShoppingCartProduct product) = _$_AddProduct;
 
-  Product get product;
-  int get quantity;
+  ShoppingCartProduct get product;
   @JsonKey(ignore: true)
   _$AddProductCopyWith<_AddProduct> get copyWith =>
       throw _privateConstructorUsedError;
@@ -390,7 +378,7 @@ abstract class _$RemoveProductCopyWith<$Res> {
   factory _$RemoveProductCopyWith(
           _RemoveProduct value, $Res Function(_RemoveProduct) then) =
       __$RemoveProductCopyWithImpl<$Res>;
-  $Res call({Product product});
+  $Res call({int index});
 }
 
 /// @nodoc
@@ -406,13 +394,13 @@ class __$RemoveProductCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? product = freezed,
+    Object? index = freezed,
   }) {
     return _then(_RemoveProduct(
-      product == freezed
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as Product,
+      index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -420,14 +408,14 @@ class __$RemoveProductCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_RemoveProduct implements _RemoveProduct {
-  const _$_RemoveProduct(this.product);
+  const _$_RemoveProduct(this.index);
 
   @override
-  final Product product;
+  final int index;
 
   @override
   String toString() {
-    return 'ShoppingCartEvent.removeProduct(product: $product)';
+    return 'ShoppingCartEvent.removeProduct(index: $index)';
   }
 
   @override
@@ -435,12 +423,12 @@ class _$_RemoveProduct implements _RemoveProduct {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _RemoveProduct &&
-            const DeepCollectionEquality().equals(other.product, product));
+            const DeepCollectionEquality().equals(other.index, index));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(product));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
 
   @JsonKey(ignore: true)
   @override
@@ -451,35 +439,35 @@ class _$_RemoveProduct implements _RemoveProduct {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Product product, int quantity) addProduct,
-    required TResult Function(Product product) removeProduct,
+    required TResult Function(ShoppingCartProduct product) addProduct,
+    required TResult Function(int index) removeProduct,
     required TResult Function() createOrder,
   }) {
-    return removeProduct(product);
+    return removeProduct(index);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product, int quantity)? addProduct,
-    TResult Function(Product product)? removeProduct,
+    TResult Function(ShoppingCartProduct product)? addProduct,
+    TResult Function(int index)? removeProduct,
     TResult Function()? createOrder,
   }) {
-    return removeProduct?.call(product);
+    return removeProduct?.call(index);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product, int quantity)? addProduct,
-    TResult Function(Product product)? removeProduct,
+    TResult Function(ShoppingCartProduct product)? addProduct,
+    TResult Function(int index)? removeProduct,
     TResult Function()? createOrder,
     required TResult orElse(),
   }) {
     if (removeProduct != null) {
-      return removeProduct(product);
+      return removeProduct(index);
     }
     return orElse();
   }
@@ -523,9 +511,9 @@ class _$_RemoveProduct implements _RemoveProduct {
 }
 
 abstract class _RemoveProduct implements ShoppingCartEvent {
-  const factory _RemoveProduct(Product product) = _$_RemoveProduct;
+  const factory _RemoveProduct(int index) = _$_RemoveProduct;
 
-  Product get product;
+  int get index;
   @JsonKey(ignore: true)
   _$RemoveProductCopyWith<_RemoveProduct> get copyWith =>
       throw _privateConstructorUsedError;
@@ -573,8 +561,8 @@ class _$_CreateOrder implements _CreateOrder {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Product product, int quantity) addProduct,
-    required TResult Function(Product product) removeProduct,
+    required TResult Function(ShoppingCartProduct product) addProduct,
+    required TResult Function(int index) removeProduct,
     required TResult Function() createOrder,
   }) {
     return createOrder();
@@ -584,8 +572,8 @@ class _$_CreateOrder implements _CreateOrder {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product, int quantity)? addProduct,
-    TResult Function(Product product)? removeProduct,
+    TResult Function(ShoppingCartProduct product)? addProduct,
+    TResult Function(int index)? removeProduct,
     TResult Function()? createOrder,
   }) {
     return createOrder?.call();
@@ -595,8 +583,8 @@ class _$_CreateOrder implements _CreateOrder {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product, int quantity)? addProduct,
-    TResult Function(Product product)? removeProduct,
+    TResult Function(ShoppingCartProduct product)? addProduct,
+    TResult Function(int index)? removeProduct,
     TResult Function()? createOrder,
     required TResult orElse(),
   }) {
