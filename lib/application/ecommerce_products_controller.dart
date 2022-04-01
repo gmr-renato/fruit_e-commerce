@@ -2,13 +2,18 @@ import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 
 import '../domain/core/failures.dart';
+import '../domain/core/value_objects.dart';
 import '../domain/product.dart';
 import '../infrastructure/product_repository.dart';
 
 class ECommerceProductsController extends GetxController with StateMixin {
-  ECommerceProductsController(this._repository);
+  ECommerceProductsController(
+    this._repository,
+    this.countryCode,
+  );
 
   final ProductRepository _repository;
+  final IsoCountryCode countryCode;
 
   final _productsFromRepository =
       Rxn<Either<Failure, List<Either<Failure, Product>>>>();
@@ -20,7 +25,7 @@ class ECommerceProductsController extends GetxController with StateMixin {
     super.onInit();
     change(null, status: RxStatus.loading());
 
-    _productsFromRepository.bindStream(_repository.watchAll());
+    _productsFromRepository.bindStream(_repository.watchAll(countryCode));
     ever(
         _productsFromRepository,
         (_) => change(

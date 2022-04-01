@@ -11,6 +11,7 @@ _$_ProductDTO _$$_ProductDTOFromJson(Map<String, dynamic> json) =>
       uid: json['uid'] as String,
       color: json['color'] as int,
       imageUrl: json['imageUrl'] as String,
+      isNew: json['isNew'] as bool?,
       i18n: (json['i18n'] as Map<String, dynamic>).map(
         (k, e) => MapEntry(
             k, ProductI18nDetailsDTO.fromJson(e as Map<String, dynamic>)),
@@ -22,6 +23,7 @@ Map<String, dynamic> _$$_ProductDTOToJson(_$_ProductDTO instance) =>
       'uid': instance.uid,
       'color': instance.color,
       'imageUrl': instance.imageUrl,
+      'isNew': instance.isNew,
       'i18n': instance.i18n.map((k, e) => MapEntry(k, e.toJson())),
     };
 

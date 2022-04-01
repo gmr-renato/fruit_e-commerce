@@ -22,10 +22,12 @@ class DomainCoreConstants {
   static const int maxDescriptionLength = 500;
 
   ///UnitTypes
+  static const String un = 'un';
   static const String quilograms = 'quilograms';
   static const String pounds = 'pounds';
 
   static const Set<String> unitTypes = {
+    un,
     quilograms,
     pounds,
   };

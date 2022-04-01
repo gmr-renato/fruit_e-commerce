@@ -24,6 +24,7 @@ String unitSymbol(UnitType unit) {
   final Map<UnitType, String> symbols = {
     UnitType.quilograms(): 'kg',
     UnitType.pounds(): 'lb',
+    UnitType.un(): 'un'
   };
 
   return symbols[unit] ?? symbols[UnitType.pounds()]!;

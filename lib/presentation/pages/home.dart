@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:fruit_design_system/fruit_design_system.dart';
 
 import '../../application/ecommerce_products_controller.dart';
+import '../../domain/core/value_objects.dart';
 import '../../infrastructure/core/get_initializer.dart';
 import '../../infrastructure/product_repository.dart';
 import '../helpers/full_screen_bottom_sheet_hight.dart';
@@ -20,7 +21,10 @@ class HomePage extends StatelessWidget {
     final _bottomSheetHight = fullScreenBottomSheetHight(context);
 
     final _ecommerceController = Get.put(
-      ECommerceProductsController(getIt<ProductRepository>()),
+      ECommerceProductsController(
+        getIt<ProductRepository>(),
+        IsoCountryCode.br(),
+      ),
     );
 
     return Scaffold(
@@ -60,15 +64,27 @@ class HomePage extends StatelessWidget {
                   horizontal: FruitUnit.medium,
                 ),
                 scrollDirection: Axis.horizontal,
-                itemCount: _ecommerceController.products.length,
+                itemCount: _ecommerceController.products
+                    .where((element) => element.fold(
+                          (l) => false,
+                          (r) => r.isNew,
+                        ))
+                    .toList()
+                    .length,
                 itemBuilder: (BuildContext _, int index) {
-                  return _ecommerceController.products[index].fold(
-                    (l) => const Text('Error'),
-                    (r) => NewProductCard(
-                      r,
-                      productPageHeight: _bottomSheetHight,
-                    ),
-                  );
+                  return _ecommerceController.products
+                      .where((element) => element.fold(
+                            (l) => false,
+                            (r) => r.isNew,
+                          ))
+                      .toList()[index]
+                      .fold(
+                        (l) => const Text('Error'),
+                        (r) => NewProductCard(
+                          r,
+                          productPageHeight: _bottomSheetHight,
+                        ),
+                      );
                 },
                 separatorBuilder: (BuildContext context, int index) {
                   return const FruitBoxSpacer();
@@ -84,6 +100,12 @@ class HomePage extends StatelessWidget {
             ),
             ListView.separated(
               shrinkWrap: true,
+              padding: const EdgeInsets.fromLTRB(
+                0,
+                0,
+                0,
+                FruitUnit.xLarge,
+              ),
               physics: const NeverScrollableScrollPhysics(),
               itemCount: _ecommerceController.products.length,
               itemBuilder: (BuildContext context, int index) {

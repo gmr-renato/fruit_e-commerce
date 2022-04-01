@@ -10,12 +10,14 @@ class Product {
     required this.uid,
     required this.color,
     required this.imageUrl,
+    required this.isNew,
     required this.i18nDetails,
   });
 
   final UniqueID uid;
   final ColorCode color;
   final URL imageUrl;
+  final bool isNew;
   final Map<IsoCountryCode, ProductI18nDetails> i18nDetails;
 
   Option<ValueFailure<dynamic>> get failureOption => uid.failureOrUnit

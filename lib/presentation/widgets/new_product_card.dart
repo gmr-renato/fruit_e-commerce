@@ -58,12 +58,10 @@ class NewProductCard extends StatelessWidget {
                     ),
                   ],
                 ),
+                const FruitBoxSpacer.small(),
                 Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(FruitUnit.small),
-                    child: CachedNetworkImage(
-                      imageUrl: product.imageUrl.getOrCrash(),
-                    ),
+                  child: CachedNetworkImage(
+                    imageUrl: product.imageUrl.getOrCrash(),
                   ),
                 ),
               ],

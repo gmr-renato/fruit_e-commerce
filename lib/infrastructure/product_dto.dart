@@ -16,6 +16,7 @@ class ProductDTO with _$ProductDTO {
     required String uid,
     required int color,
     required String imageUrl,
+    required bool? isNew,
     required Map<String, ProductI18nDetailsDTO> i18n,
   }) = _ProductDTO;
 
@@ -25,6 +26,7 @@ class ProductDTO with _$ProductDTO {
         uid: product.uid.getOrCrash(),
         color: product.color.getOrCrash(),
         imageUrl: product.imageUrl.getOrCrash(),
+        isNew: product.isNew,
         i18n: product.i18nDetails.map(
           (key, value) => MapEntry(
             key.getOrCrash(),
@@ -40,6 +42,7 @@ class ProductDTO with _$ProductDTO {
         uid: UniqueID.fromSafeString(uid),
         color: ColorCode(color),
         imageUrl: URL(imageUrl),
+        isNew: isNew ?? false,
         i18nDetails: i18n.map(
           (key, value) => MapEntry(
             IsoCountryCode.fromString(key),

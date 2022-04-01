@@ -26,11 +26,13 @@ class _$ProductDTOTearOff {
       {required String uid,
       required int color,
       required String imageUrl,
+      required bool? isNew,
       required Map<String, ProductI18nDetailsDTO> i18n}) {
     return _ProductDTO(
       uid: uid,
       color: color,
       imageUrl: imageUrl,
+      isNew: isNew,
       i18n: i18n,
     );
   }
@@ -48,6 +50,7 @@ mixin _$ProductDTO {
   String get uid => throw _privateConstructorUsedError;
   int get color => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
+  bool? get isNew => throw _privateConstructorUsedError;
   Map<String, ProductI18nDetailsDTO> get i18n =>
       throw _privateConstructorUsedError;
 
@@ -66,6 +69,7 @@ abstract class $ProductDTOCopyWith<$Res> {
       {String uid,
       int color,
       String imageUrl,
+      bool? isNew,
       Map<String, ProductI18nDetailsDTO> i18n});
 }
 
@@ -82,6 +86,7 @@ class _$ProductDTOCopyWithImpl<$Res> implements $ProductDTOCopyWith<$Res> {
     Object? uid = freezed,
     Object? color = freezed,
     Object? imageUrl = freezed,
+    Object? isNew = freezed,
     Object? i18n = freezed,
   }) {
     return _then(_value.copyWith(
@@ -97,6 +102,10 @@ class _$ProductDTOCopyWithImpl<$Res> implements $ProductDTOCopyWith<$Res> {
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      isNew: isNew == freezed
+          ? _value.isNew
+          : isNew // ignore: cast_nullable_to_non_nullable
+              as bool?,
       i18n: i18n == freezed
           ? _value.i18n
           : i18n // ignore: cast_nullable_to_non_nullable
@@ -115,6 +124,7 @@ abstract class _$ProductDTOCopyWith<$Res> implements $ProductDTOCopyWith<$Res> {
       {String uid,
       int color,
       String imageUrl,
+      bool? isNew,
       Map<String, ProductI18nDetailsDTO> i18n});
 }
 
@@ -133,6 +143,7 @@ class __$ProductDTOCopyWithImpl<$Res> extends _$ProductDTOCopyWithImpl<$Res>
     Object? uid = freezed,
     Object? color = freezed,
     Object? imageUrl = freezed,
+    Object? isNew = freezed,
     Object? i18n = freezed,
   }) {
     return _then(_ProductDTO(
@@ -148,6 +159,10 @@ class __$ProductDTOCopyWithImpl<$Res> extends _$ProductDTOCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      isNew: isNew == freezed
+          ? _value.isNew
+          : isNew // ignore: cast_nullable_to_non_nullable
+              as bool?,
       i18n: i18n == freezed
           ? _value.i18n
           : i18n // ignore: cast_nullable_to_non_nullable
@@ -164,6 +179,7 @@ class _$_ProductDTO extends _ProductDTO {
       {required this.uid,
       required this.color,
       required this.imageUrl,
+      required this.isNew,
       required this.i18n})
       : super._();
 
@@ -177,11 +193,13 @@ class _$_ProductDTO extends _ProductDTO {
   @override
   final String imageUrl;
   @override
+  final bool? isNew;
+  @override
   final Map<String, ProductI18nDetailsDTO> i18n;
 
   @override
   String toString() {
-    return 'ProductDTO(uid: $uid, color: $color, imageUrl: $imageUrl, i18n: $i18n)';
+    return 'ProductDTO(uid: $uid, color: $color, imageUrl: $imageUrl, isNew: $isNew, i18n: $i18n)';
   }
 
   @override
@@ -192,6 +210,7 @@ class _$_ProductDTO extends _ProductDTO {
             const DeepCollectionEquality().equals(other.uid, uid) &&
             const DeepCollectionEquality().equals(other.color, color) &&
             const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
+            const DeepCollectionEquality().equals(other.isNew, isNew) &&
             const DeepCollectionEquality().equals(other.i18n, i18n));
   }
 
@@ -201,6 +220,7 @@ class _$_ProductDTO extends _ProductDTO {
       const DeepCollectionEquality().hash(uid),
       const DeepCollectionEquality().hash(color),
       const DeepCollectionEquality().hash(imageUrl),
+      const DeepCollectionEquality().hash(isNew),
       const DeepCollectionEquality().hash(i18n));
 
   @JsonKey(ignore: true)
@@ -219,6 +239,7 @@ abstract class _ProductDTO extends ProductDTO {
       {required String uid,
       required int color,
       required String imageUrl,
+      required bool? isNew,
       required Map<String, ProductI18nDetailsDTO> i18n}) = _$_ProductDTO;
   const _ProductDTO._() : super._();
 
@@ -231,6 +252,8 @@ abstract class _ProductDTO extends ProductDTO {
   int get color;
   @override
   String get imageUrl;
+  @override
+  bool? get isNew;
   @override
   Map<String, ProductI18nDetailsDTO> get i18n;
   @override

@@ -142,10 +142,14 @@ class UnitType extends AValueObject<String> {
   factory UnitType.pounds() => UnitType._(
         right(DomainCoreConstants.pounds),
       );
+  factory UnitType.un() => UnitType._(
+        right(DomainCoreConstants.un),
+      );
 
   @override
   final Either<ValueFailure<String>, String> value;
 
+  bool isUn() => getOrCrash() == DomainCoreConstants.un;
   bool isQuilograms() => getOrCrash() == DomainCoreConstants.quilograms;
   bool isPounds() => getOrCrash() == DomainCoreConstants.pounds;
 }
