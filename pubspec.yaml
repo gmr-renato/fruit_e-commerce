@@ -40,15 +40,6 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.0.1
   flutterfire_ui: ^0.3.6+1
-  fruit_design_system:
-    # The following lines make fruit_design_system available though reference
-    # Use "path" reference in development mode so you can follow real time changes in
-    # the fruit_design_system repo
-    path: ../fruit_design_system
-    # Use "git" reference in production mode. This is required to CI/CI integration
-    # git:
-    #   url: https://github.com/gmr-renato/fruit_design_system.git
-    #   ref: production
   get: ^4.6.1
   get_it: ^7.2.0
   json_annotation: ^4.4.0

@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fruit_design_system/fruit_design_system.dart';
+import '../../design/fruit_design_system.dart';
 import '../helpers/value_formatters.dart';
 import 'shopping_cart.dart';
 

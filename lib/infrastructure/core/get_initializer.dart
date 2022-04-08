@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fruit_design_system/fruit_design_system.dart';
+
 import 'package:get_it/get_it.dart';
 
 import '../../application/bloc/shopping_cart_bloc.dart';
+import '../../design/fruit_design_system.dart';
 import '../product_repository.dart';
 
 final GetIt getIt = GetIt.instance;

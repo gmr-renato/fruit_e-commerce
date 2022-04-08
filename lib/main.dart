@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:fruit_design_system/fruit_design_system.dart';
+import 'design/fruit_design_system.dart';
 import 'firebase_options.dart';
 import 'infrastructure/core/get_initializer.dart';
 import 'presentation/pages/home.dart';

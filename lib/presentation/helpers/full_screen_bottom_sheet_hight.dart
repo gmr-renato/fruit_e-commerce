@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_design_system/fruit_design_system.dart';
+
+import '../../design/fruit_design_system.dart';
 
 double fullScreenBottomSheetHight(BuildContext context) =>
     (MediaQuery.of(context).size.height -

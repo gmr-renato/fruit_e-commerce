@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruit_design_system/fruit_design_system.dart';
 
 import '../../application/bloc/shopping_cart_bloc.dart';
+import '../../design/fruit_design_system.dart';
 import '../../domain/shopping_cart_product.dart';
 import '../../infrastructure/core/get_initializer.dart';
 import '../helpers/value_formatters.dart';

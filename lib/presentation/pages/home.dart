@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:fruit_design_system/fruit_design_system.dart';
-
 import '../../application/ecommerce_products_controller.dart';
+import '../../design/fruit_design_system.dart';
 import '../../domain/core/value_objects.dart';
 import '../../fruit_ds_intersection/show_feature_under_construction_dialog.dart';
 import '../../infrastructure/core/get_initializer.dart';
