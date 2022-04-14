@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../design/fruit_design_system.dart';
+import '../../design_system/fruit_design_system.dart';
 
 showFullScreenBottomSheet(BuildContext context, double hight, Widget child) =>
     showModalBottomSheet(

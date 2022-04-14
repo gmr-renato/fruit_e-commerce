@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/bloc/shopping_cart_bloc.dart';
-import '../../design/fruit_design_system.dart';
-import '../../fruit_ds_intersection/show_feature_under_construction_dialog.dart';
+import '../../design_system/fruit_design_system.dart';
+import '../../design_system_intersection/show_feature_under_construction_dialog.dart';
 import '../../infrastructure/core/get_initializer.dart';
 import '../helpers/value_formatters.dart';
 import '../widgets/product_shopping_bag_tile.dart';

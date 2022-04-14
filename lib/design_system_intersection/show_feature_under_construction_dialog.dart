@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../design/widgets/feature_under_construction_dialog/feature_under_construction_dialog.dart';
+import '../design_system/widgets/feature_under_construction_dialog/feature_under_construction_dialog.dart';
 
 Future<T?> showFruitFeatureUnderConstructionDialog<T>(
   BuildContext context,

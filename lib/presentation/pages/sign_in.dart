@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
 
-import '../../design/fruit_design_system.dart';
+import '../../design_system/fruit_design_system.dart';
 import '../../infrastructure/core/get_initializer.dart';
 
 class SignInPage extends StatelessWidget {
