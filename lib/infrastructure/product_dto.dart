@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../domain/core/value_objects.dart';
 import '../domain/product.dart';
-import 'product_i18n_details.dart';
+import '../domain/product_i18n_details.dart';
 
 part 'product_dto.freezed.dart';
 part 'product_dto.g.dart';

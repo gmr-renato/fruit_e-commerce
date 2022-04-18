@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 
-import '../infrastructure/product_i18n_details.dart';
+import 'product_i18n_details.dart';
 import 'core/value_failure.dart';
 import 'core/value_objects.dart';
 
