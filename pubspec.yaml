@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  dartz: ^0.10.1
   flutter:
     sdk: flutter
   fruit_design_system:
@@ -39,15 +40,17 @@ dependencies:
     # git:
     #   url: https://github.com/gmr-renato/fruit_design_system.git
     #   ref: production
-
+  freezed_annotation: ^2.0.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  analyzer: ^3.3.1
+  build_runner: ^2.1.10
   flutter_test:
     sdk: flutter
-  analyzer: ^3.3.1
+  freezed: ^2.0.2
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
