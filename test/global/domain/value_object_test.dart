@@ -9,10 +9,12 @@ void main() {
   const inputDouble = 10.0;
   const inputString = 'test';
   final validIntValueObject = _IntValueObject.valid(inputInt);
+  final validIntValueObject2 = _IntValueObject.valid(inputInt * 2);
+
   final validDoubleValueObject = _DoubleValueObject.valid(inputDouble);
   final validStringValueObject = _StringValueObject.valid(inputString);
 
-  final invalidIntInstance = _IntValueObject.invalid(10);
+  final invalidIntValueObject = _IntValueObject.invalid(10);
 
   test(
     'Validate primitive types declaration on the right side',
@@ -38,7 +40,7 @@ void main() {
         (l) => _throwLeftSide,
         (r) => expect(r.runtimeType, Unit),
       );
-      invalidIntInstance.failureOrUnit.fold(
+      invalidIntValueObject.failureOrUnit.fold(
         (l) => expect(
           l.runtimeType,
           const ValueFailure.unexpected(failedValue: inputInt).runtimeType,
@@ -57,8 +59,8 @@ void main() {
   test(
     'isInvalid() should be true & isValid() should be false for invalid input',
     () {
-      expect(invalidIntInstance.isInvalid(), true);
-      expect(invalidIntInstance.isValid(), false);
+      expect(invalidIntValueObject.isInvalid(), true);
+      expect(invalidIntValueObject.isValid(), false);
     },
   );
   test(
@@ -71,9 +73,21 @@ void main() {
     'getOrCrash() should throw UnexpectedValueError for invalid input',
     () {
       expect(
-        () => invalidIntInstance.getOrCrash(),
+        () => invalidIntValueObject.getOrCrash(),
         throwsA(isA<UnexpectedValueError>()),
       );
+    },
+  );
+  test(
+    'Equal operator should return true for value object with same input',
+    () {
+      expect(validIntValueObject == validIntValueObject, true);
+    },
+  );
+  test(
+    'Equal operator should return false for value object with different input',
+    () {
+      expect(validIntValueObject == validIntValueObject2, false);
     },
   );
 }
