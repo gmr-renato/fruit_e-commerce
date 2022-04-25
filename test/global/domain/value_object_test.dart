@@ -4,7 +4,8 @@ import 'package:fruit_ecommerce/global/domain/unexpected_value_error.dart';
 import 'package:fruit_ecommerce/global/domain/value_failure.dart';
 import 'package:fruit_ecommerce/global/domain/value_object.dart';
 
-import '../../setup/test_inputs.dart';
+import '../../shared/standard_throws.dart';
+import '../../shared/test_inputs.dart';
 
 void main() {
   final validIntValueObject = _IntValueObject.valid(TestInputs.simpleInt);
@@ -21,15 +22,15 @@ void main() {
     'Validate primitive types declaration on the right side',
     () {
       validIntValueObject.value.fold(
-        (l) => _throwLeftSide,
+        (l) => throwLeftSide,
         (r) => expect(r.runtimeType, int),
       );
       validDoubleValueObject.value.fold(
-        (l) => _throwLeftSide,
+        (l) => throwLeftSide,
         (r) => expect(r.runtimeType, double),
       );
       validStringValueObject.value.fold(
-        (l) => _throwLeftSide,
+        (l) => throwLeftSide,
         (r) => expect(r.runtimeType, String),
       );
     },
@@ -38,7 +39,7 @@ void main() {
     'Should return unit for valid input & ValueFailure for invalid input',
     () {
       validIntValueObject.failureOrUnit.fold(
-        (l) => _throwLeftSide,
+        (l) => throwLeftSide,
         (r) => expect(r.runtimeType, Unit),
       );
       invalidIntValueObject.failureOrUnit.fold(
@@ -47,7 +48,7 @@ void main() {
           const ValueFailure.unexpected(failedValue: TestInputs.simpleInt)
               .runtimeType,
         ),
-        (r) => _throwRightSide,
+        (r) => throwRightSide,
       );
     },
   );
@@ -93,12 +94,6 @@ void main() {
     },
   );
 }
-
-void _throwLeftSide() =>
-    throw Exception('Should not reach left side for valid value');
-
-void _throwRightSide() =>
-    throw Exception('Should not reach right side for invalid value');
 
 class _IntValueObject extends AValueObject<int> {
   const _IntValueObject._(this.value);
