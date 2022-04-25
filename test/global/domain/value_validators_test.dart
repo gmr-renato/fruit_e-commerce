@@ -2,11 +2,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fruit_ecommerce/global/domain/value_failure.dart';
 import 'package:fruit_ecommerce/global/domain/value_validators.dart';
 
-import '../../setup/test_inputs.dart';
+import '../../shared/standard_throws.dart';
+import '../../shared/test_inputs.dart';
 
 void main() {
   group(
-    'validateStringNotEmpty',
+    'validateStringNotEmpty() -',
     () {
       test(
         'Should return a left(ValueFailure.empty) if the input is empty',
@@ -16,7 +17,7 @@ void main() {
 
           validateStringNotEmpty(input).fold(
             (l) => expect(l, expected),
-            (r) => throwRightSide,
+            (r) => throwRightSide(),
           );
         },
       );
@@ -26,7 +27,7 @@ void main() {
           const input = TestInputs.singleWord;
 
           validateStringNotEmpty(input).fold(
-            (l) => throwLeftSide,
+            (l) => throwLeftSide(),
             (r) => expect(r, TestInputs.singleWord),
           );
         },
