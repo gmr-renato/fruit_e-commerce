@@ -4,15 +4,16 @@ import 'package:fruit_ecommerce/global/domain/unexpected_value_error.dart';
 import 'package:fruit_ecommerce/global/domain/value_failure.dart';
 import 'package:fruit_ecommerce/global/domain/value_object.dart';
 
-void main() {
-  const inputInt = 10;
-  const inputDouble = 10.0;
-  const inputString = 'test';
-  final validIntValueObject = _IntValueObject.valid(inputInt);
-  final validIntValueObject2 = _IntValueObject.valid(inputInt * 2);
+import '../../setup/test_inputs.dart';
 
-  final validDoubleValueObject = _DoubleValueObject.valid(inputDouble);
-  final validStringValueObject = _StringValueObject.valid(inputString);
+void main() {
+  final validIntValueObject = _IntValueObject.valid(TestInputs.simpleInt);
+  final validIntValueObject2 = _IntValueObject.valid(TestInputs.simpleInt * 2);
+
+  final validDoubleValueObject =
+      _DoubleValueObject.valid(TestInputs.simpleDouble);
+  final validStringValueObject =
+      _StringValueObject.valid(TestInputs.singleWord);
 
   final invalidIntValueObject = _IntValueObject.invalid(10);
 
@@ -43,7 +44,8 @@ void main() {
       invalidIntValueObject.failureOrUnit.fold(
         (l) => expect(
           l.runtimeType,
-          const ValueFailure.unexpected(failedValue: inputInt).runtimeType,
+          const ValueFailure.unexpected(failedValue: TestInputs.simpleInt)
+              .runtimeType,
         ),
         (r) => _throwRightSide,
       );
@@ -66,7 +68,7 @@ void main() {
   test(
     'getOrCrash() should return the input value for valid input',
     () {
-      expect(validIntValueObject.getOrCrash(), inputInt);
+      expect(validIntValueObject.getOrCrash(), TestInputs.simpleInt);
     },
   );
   test(
