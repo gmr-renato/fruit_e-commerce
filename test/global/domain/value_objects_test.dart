@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fruit_ecommerce/global/domain/value_failure.dart';
+import 'package:fruit_ecommerce/global/domain/value_objects.dart';
 
 import '../../shared/standard_throws.dart';
 import '../../shared/test_inputs.dart';
@@ -24,6 +25,7 @@ void main() {
           uid = UniqueID.fromSafeString(input);
 
           expect(uid.isValid(), true);
+          expect(uid.isInvalid(), false);
 
           uid.value.fold(
             (l) => throwLeftSide(),
@@ -32,11 +34,14 @@ void main() {
         },
       );
       test(
-        'Should match ValueFailure.empty from left() on empty input',
+        'Should be invalid & match ValueFailure.empty from left() on empty input',
         () {
           const input = TestInputs.emptyString;
           uid = UniqueID.fromSafeString(input);
           const expectedFailure = ValueFailure.empty(failedValue: '');
+
+          expect(uid.isInvalid(), true);
+          expect(uid.isValid(), false);
 
           uid.value.fold(
             (l) => expect(l, expectedFailure),
