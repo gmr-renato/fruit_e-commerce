@@ -4,4 +4,6 @@ class TestInputs {
 
   static const emptyString = '';
   static const singleWord = 'TestString';
+
+  static const validUID = 'RnfRe88Y5LC42iglwZOS';
 }
