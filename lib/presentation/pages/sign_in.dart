@@ -1,5 +1,5 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterfire_ui/auth.dart';
 
 import '../../design_system/fruit_design_system.dart';
 import '../../infrastructure/core/get_initializer.dart';
@@ -12,8 +12,8 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SignInScreen(
-      providerConfigs: const [
-        EmailProviderConfiguration(),
+      providers: [
+        EmailAuthProvider(),
         // TODO: use SHA local hash to make it work
         // GoogleProviderConfiguration(
         //   clientId:
