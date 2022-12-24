@@ -72,7 +72,7 @@ class ProductPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: Scrollbar(
-                    isAlwaysShown: true,
+                    thumbVisibility: true,
                     child: SingleChildScrollView(
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(

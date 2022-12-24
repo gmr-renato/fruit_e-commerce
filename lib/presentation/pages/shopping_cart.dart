@@ -64,7 +64,7 @@ class ShoppingCartPage extends StatelessWidget {
                             child: Text('Your cart is empty'),
                           ),
                           hasProduct: (hasProduct) => Scrollbar(
-                            isAlwaysShown: true,
+                            thumbVisibility: true,
                             child: ListView.separated(
                               itemCount: _bloc.products.length,
                               itemBuilder: (BuildContext __, int index) {
